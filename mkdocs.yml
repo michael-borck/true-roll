@@ -1,0 +1,35 @@
+site_name: TrueRoll Documentation
+
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Modelling Market Dynamics: modelling_market_dynamics.md
+  - Simulations:
+      - Product Popularity: product_popularity.md
+      - Stock Market: stock_market.md
+      - Resource Fluctuations: resource_fluctuations.md
+  - Teaching Guide: teaching_guide.md
+  - API Documentation: api.md
+  - Contribute: contribute.md
+  - Contact: contact.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          rendering:
+            show_source: true
