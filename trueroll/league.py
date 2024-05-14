@@ -56,6 +56,7 @@ class League:
                 results[f"Team {i+1}"].append(tournament.get_average_scores())
         return results
 
+
 if __name__ == "__main__":
     # Example usage of the League class for demonstration purposes.
     alley = Alley("High Strike Lanes", "Downtown", "Synthetic")
