@@ -1,6 +1,7 @@
 import pytest
 from trueroll import Alley
 
+
 def test_alley_creation():
     # Test the creation of an Alley instance
     alley = Alley(name="Kingpin Alley", location="Springfield", lane_type="Synthetic")

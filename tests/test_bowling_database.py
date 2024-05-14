@@ -1,7 +1,6 @@
 import pytest
-from bowling_database import BowlingDatabase
+from trueroll import BowlingDatabase
 from trueroll import Bowler, Alley
-
 
 @pytest.fixture
 def db():
@@ -12,7 +11,6 @@ def db():
     import os
     os.remove('test_bowling.db')
 
-
 def test_add_bowler(db):
     """Test adding a new bowler to the database."""
     bowler = Bowler(name="John Doe", strike_prob=0.5, spare_prob=0.3, handedness="right", technique="single")
@@ -20,13 +18,17 @@ def test_add_bowler(db):
     assert bowler_id is not None
     assert isinstance(bowler_id, int)
 
-
 def test_add_alley(db):
     """Test adding a new alley to the database."""
     alley = Alley(name="Main Street Lanes", location="123 Main St", lane_type="Synthetic")
     alley_id = db.add_alley(alley)
     assert alley_id is not None
     assert isinstance(alley_id, int)
+
+def test_bowler_with_invalid_probabilities():
+    """Test handling of invalid probability values."""
+    with pytest.raises(ValueError):
+        Bowler(name="Invalid Bowler", strike_prob=1.2, spare_prob=0.8)
 
 # Additional tests can include:
 # - Test updating an existing bowler.

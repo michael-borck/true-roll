@@ -21,7 +21,19 @@ class Bowler:
             spare_prob (float): Probability of hitting a spare, between 0 and 1.
             handedness (str): The preferred hand of the bowler, either 'left' or 'right' (default 'right').
             technique (str): The bowling technique used by the bowler, either 'single' or 'double' handed (default 'single').
+
+        Raises:
+            ValueError: If strike_prob or spare_prob is greater than 1.
         """
+        if not (0 <= strike_prob <= 1):
+            raise ValueError(f"Invalid strike probability {strike_prob}. Must be between 0 and 1.")
+        if not (0 <= spare_prob <= 1):
+            raise ValueError(f"Invalid spare probability {spare_prob}. Must be between 0 and 1.")
+        if handedness not in ['left', 'right']:
+            raise ValueError(f"Invalid handedness '{handedness}'. Must be 'left' or 'right'.")
+        if technique not in ['single', 'double']:
+            raise ValueError(f"Invalid technique '{technique}'. Must be 'single' or 'double'.")
+        
         self.name = name
         self.strike_prob = strike_prob
         self.spare_prob = spare_prob

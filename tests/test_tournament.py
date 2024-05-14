@@ -1,13 +1,14 @@
 import pytest
 from trueroll import Bowler, Alley, Tournament
 
+
 @pytest.fixture
 def sample_bowlers():
     return [Bowler("John Doe", strike_prob=0.3, spare_prob=0.5), Bowler("Jane Smith", strike_prob=0.4, spare_prob=0.4)]
 
 @pytest.fixture
 def sample_alley():
-    return Alley("Synthetic", "Medium")
+    return Alley("Strike Zone", "Medium", "Synthetic")
 
 @pytest.fixture
 def sample_tournament(sample_bowlers, sample_alley):
@@ -18,7 +19,7 @@ def test_tournament_initialization(sample_bowlers, sample_alley):
     tournament = Tournament(sample_bowlers, sample_alley, num_games=3)
     assert tournament.num_games == 3
     assert len(tournament.bowlers) == 2
-    assert tournament.alley.type == "Synthetic"
+    assert tournament.alley.lane_type == "Synthetic"
     assert all(name in tournament.results for name in ["John Doe", "Jane Smith"])
 
 

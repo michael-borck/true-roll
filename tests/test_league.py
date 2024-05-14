@@ -2,7 +2,7 @@ import pytest
 from trueroll import Bowler, Alley, League
 
 
-def test_league_initialization():
+def test_league_initialisation():
     alley = Alley("Pin Palace", "Suburban", "Hardwood")
     league = League("City League", alley, "Medium Oil", 4, 3, 10)
     assert league.name == "City League"

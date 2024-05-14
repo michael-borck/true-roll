@@ -30,7 +30,7 @@ class BowlingDatabase:
         c.execute('''
         CREATE TABLE IF NOT EXISTS Bowlers (
             BowlerID INTEGER PRIMARY KEY,
-            Name TEXT,
+            Name TEXT UNIQUE,
             Handedness TEXT,
             Style TEXT
         )
@@ -77,9 +77,8 @@ class BowlingDatabase:
         )
         ''')
 
-        # Commit changes and close connection
+        # Commit changes
         self.conn.commit()
-        self.conn.close()
 
     def add_bowler(self, bowler: 'Bowler'):
         """
@@ -98,7 +97,7 @@ class BowlingDatabase:
             Handedness=excluded.Handedness, Style=excluded.Style
         ''', (bowler.name, bowler.handedness, bowler.technique))
         self.conn.commit()
-        return
+        return c.lastrowid
 
     def add_alley(self, alley: 'Alley'):
         """
@@ -114,7 +113,7 @@ class BowlingDatabase:
         c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)',
                   (alley.name, alley.location, alley.lane_type))
         self.conn.commit()
-        return
+        return c.lastrowid
 
     def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[Tuple[int, ...]]):
         """

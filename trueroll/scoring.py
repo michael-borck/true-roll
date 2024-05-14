@@ -1,4 +1,5 @@
 class Scoring:
+
     @staticmethod
     def traditional(frames: list) -> int:
         """
@@ -13,20 +14,40 @@ class Scoring:
             int: The total score calculated based on traditional bowling rules.
         """
         score = 0
-        rolls = []
-        for frame in frames:
-            rolls.extend(frame)
-
+        
         for i in range(10):
-            frame_index = i * 2
-            if rolls[frame_index] == 10:  # Strike
-                bonus = rolls[frame_index + 1] + rolls[frame_index + 2]
-                score += 10 + bonus
-            elif rolls[frame_index] + rolls[frame_index + 1] == 10:  # Spare
-                score += 10 + rolls[frame_index + 2]
+            frame = frames[i]
+            
+            # Strike
+            if frame[0] == 10:
+                score += 10
+                if i < 9:
+                    next_frame = frames[i + 1]
+                    if next_frame[0] == 10:
+                        score += 10
+                        if i + 1 < 9:
+                            score += frames[i + 2][0]
+                        else:
+                            score += next_frame[1]
+                    else:
+                        score += next_frame[0] + next_frame[1]
+                else:
+                    score += frame[1] + frame[2]
+
+            # Spare
+            elif sum(frame) == 10:
+                score += 10
+                if i < 9:
+                    score += frames[i + 1][0]
+                else:
+                    score += frame[2]
+            
+            # Open frame
             else:
-                score += rolls[frame_index] + rolls[frame_index + 1]
+                score += sum(frame)
+        
         return score
+
 
     @staticmethod
     def current_frame(frames: list) -> int:
