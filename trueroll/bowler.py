@@ -33,7 +33,7 @@ class Bowler:
             raise ValueError(f"Invalid handedness '{handedness}'. Must be 'left' or 'right'.")
         if technique not in ['single', 'double']:
             raise ValueError(f"Invalid technique '{technique}'. Must be 'single' or 'double'.")
-        
+
         self.name = name
         self.strike_prob = strike_prob
         self.spare_prob = spare_prob
