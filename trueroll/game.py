@@ -101,7 +101,8 @@ class Game:
         Returns:
             Dict[str, List[Tuple[int, ...]]]: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.
         """
-        results = {bowler.name: [] for bowler in self.bowlers}
+        results: Dict[str, List[Tuple[int, ...]]] = {bowler.name: [] for bowler in self.bowlers}
+        # results = {bowler.name: [] for bowler in self.bowlers}
         for frame_results in self.frame_by_frame_generator():
             for name, frame in frame_results.items():
                 results[name].append(frame)
