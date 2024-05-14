@@ -1,5 +1,5 @@
 import sqlite3
-from typing import List, Tuple, Any
+from typing import List, Tuple
 
 
 class BowlingDatabase:
@@ -24,8 +24,61 @@ class BowlingDatabase:
         Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details.
         """
         c = self.conn.cursor()
-        # Example table creation SQL. Please modify as per actual schema requirements.
-        # ...
+
+        # Create tables
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Bowlers (
+            BowlerID INTEGER PRIMARY KEY,
+            Name TEXT,
+            Handedness TEXT,
+            Style TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Alleys (
+            AlleyID INTEGER PRIMARY KEY,
+            Name TEXT,
+            Location TEXT,
+            LaneType TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS OilPatterns (
+            PatternID INTEGER PRIMARY KEY,
+            Name TEXT,
+            Description TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Games (
+            GameID INTEGER PRIMARY KEY,
+            Date TEXT,
+            AlleyID INTEGER,
+            OilPatternID INTEGER,
+            FOREIGN KEY (AlleyID) REFERENCES Alleys(AlleyID),
+            FOREIGN KEY (OilPatternID) REFERENCES OilPatterns(PatternID)
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS GameDetails (
+            GameID INTEGER,
+            BowlerID INTEGER,
+            FrameData TEXT,
+            TotalScore INTEGER,
+            StrikePercentage REAL,
+            SparePercentage REAL,
+            FOREIGN KEY (GameID) REFERENCES Games(GameID),
+            FOREIGN KEY (BowlerID) REFERENCES Bowlers(BowlerID)
+        )
+        ''')
+
+        # Commit changes and close connection
+        self.conn.commit()
+        self.conn.close()
 
     def add_bowler(self, bowler: 'Bowler') -> int:
         """
