@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>TrueRoll Documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> TrueRoll Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="api/">API Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="contribute/">Contribute</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">TrueRoll Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="welcome-to-trueroll">Welcome to TrueRoll</h1>
+<p>TrueRoll is a comprehensive simulation library for ten-pin bowling, designed to model games, analyze player performance, and investigate the impacts of various environmental and personal factors on gameplay.</p>
+<h2 id="overview">Overview</h2>
+<p>Bowling, as a sport, involves numerous variables that can influence the outcome of a game, from the skill level of the players to the characteristics of the bowling alley. TrueRoll aims to provide a realistic and flexible simulation environment where these variables can be controlled and studied. Whether you're a data scientist, a coach, or a bowling enthusiast, TrueRoll offers tools to simulate, analyze, and understand the nuances of ten-pin bowling.</p>
+<h2 id="features">Features</h2>
+<p>TrueRoll includes several key features:</p>
+<ul>
+<li><strong>Game Simulation:</strong> Simulate complete games with detailed control over player attributes and alley conditions.</li>
+<li><strong>Scoring Systems:</strong> Support for various scoring systems including traditional, current frame, and 9-pin no-tap.</li>
+<li><strong>Statistical Analysis:</strong> Tools to analyze game outcomes, providing insights into performance metrics such as strike rates, spare conversions, and overall scores.</li>
+<li><strong>Data Management:</strong> Integration with a SQLite database to store and retrieve game records, player profiles, and alley specifications for longitudinal studies and performance tracking.</li>
+<li><strong>Extensibility:</strong> Designed with extensibility in mind, allowing users to add new types of analyses, scoring rules, or even different bowling games like duckpin or candlepin bowling.</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started with TrueRoll, you'll need to have Python installed on your machine, along with Poetry for dependency management. Clone the repository, install dependencies, and you're ready to start simulating your own bowling games.</p>
+<pre><code class="language-bash">git clone https://github.com/yourgithubusername/trueroll.git
+cd trueroll
+poetry install
+</code></pre>
+<p>You can then dive into simulating games or analyzing bowling data by following the examples provided in the documentation.</p>
+<h2 id="documentation">Documentation</h2>
+<p>This documentation is structured to help you find what you need:</p>
+<ul>
+<li><strong>Installation Guide:</strong> Detailed instructions on setting up TrueRoll on your system.</li>
+<li><strong>User Guide:</strong> How to use TrueRoll to simulate games and analyze data.</li>
+<li><strong>API Reference:</strong> Comprehensive details about the functions and classes available in TrueRoll.</li>
+<li><strong>Examples:</strong> Practical examples and case studies using TrueRoll.</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>TrueRoll is an open-source project, and contributions are welcome. Check out the contributing guidelines to see how you can make a difference, whether through code, documentation, or community support.</p>
+<h2 id="license">License</h2>
+<p>TrueRoll is released under the MIT license. This choice ensures that the software can be freely used, modified, and shared.</p>
+<p>Thank you for visiting the TrueRoll documentation. We hope you find this project useful for your bowling simulation and analysis needs!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api/" class="btn btn-neutral float-right" title="API Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 2024-05-14 13:53:05.821207+00:00
+-->

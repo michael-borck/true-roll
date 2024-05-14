@@ -1,0 +1,3284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API Documentation - TrueRoll Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Documentation";
+        var mkdocs_page_input_path = "api.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TrueRoll Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">API Documentation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#trueroll.alley.Alley">Alley</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trueroll.alley.Alley.__init__">__init__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trueroll.alley.Alley.__str__">__str__</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contribute/">Contribute</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TrueRoll Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="alley-class">Alley Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.alley.Alley"></a>
+  <div class="doc doc-contents first">
+
+  
+      <p>Represents a bowling alley where games are played, including details about the lane conditions.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>name</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The name of the alley.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>location</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The geographic location of the alley.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>lane_type</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The type of lane surface, such as 'Wood' or 'Synthetic'.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+            <details class="quote">
+              <summary>Source code in <code>trueroll/alley.py</code></summary>
+              <pre class="highlight"><code class="language-python">class Alley:
+    """
+    Represents a bowling alley where games are played, including details about the lane conditions.
+
+    Attributes:
+        name (str): The name of the alley.
+        location (str): The geographic location of the alley.
+        lane_type (str): The type of lane surface, such as 'Wood' or 'Synthetic'.
+    """
+
+    VALID_LANE_TYPES = {'wood', 'synthetic'}
+
+    def __init__(self, name: str, location: str, lane_type: str):
+        """
+        Initialize a new Alley instance.
+
+        Parameters:
+            name (str): The name of the alley.
+            location (str): The geographic location of the alley.
+            lane_type (str): The type of lane surface, indicating the material of the bowling lane.
+
+        Raises:
+            ValueError: If lane_type is not 'Wood' or 'Synthetic'.
+        """
+        self.name = name
+        self.location = location
+        if lane_type.lower() not in self.VALID_LANE_TYPES:
+            raise ValueError(f"Invalid lane type '{lane_type}'. Valid types are: 'Wood', 'Synthetic'")
+        self.lane_type = lane_type.capitalize()
+
+    def __str__(self):
+        """
+        Return a string representation of the Alley instance, which is helpful for debugging and logging.
+
+        Returns:
+            str: A string that represents this Alley.
+        """
+        return f"{self.name} - {self.location} ({self.lane_type})"</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.alley.Alley.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(name, location, lane_type)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialize a new Alley instance.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>name</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The name of the alley.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>location</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The geographic location of the alley.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>lane_type</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The type of lane surface, indicating the material of the bowling lane.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If lane_type is not 'Wood' or 'Synthetic'.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/alley.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, name: str, location: str, lane_type: str):
+    """
+    Initialize a new Alley instance.
+
+    Parameters:
+        name (str): The name of the alley.
+        location (str): The geographic location of the alley.
+        lane_type (str): The type of lane surface, indicating the material of the bowling lane.
+
+    Raises:
+        ValueError: If lane_type is not 'Wood' or 'Synthetic'.
+    """
+    self.name = name
+    self.location = location
+    if lane_type.lower() not in self.VALID_LANE_TYPES:
+        raise ValueError(f"Invalid lane type '{lane_type}'. Valid types are: 'Wood', 'Synthetic'")
+    self.lane_type = lane_type.capitalize()</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.alley.Alley.__str__" class="doc doc-heading">
+          <code class="highlight language-python">__str__()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a string representation of the Alley instance, which is helpful for debugging and logging.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>str</code></b>            –
+            <div class="doc-md-description">
+              <p>A string that represents this Alley.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/alley.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __str__(self):
+    """
+    Return a string representation of the Alley instance, which is helpful for debugging and logging.
+
+    Returns:
+        str: A string that represents this Alley.
+    """
+    return f"{self.name} - {self.location} ({self.lane_type})"</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="bowler-class">Bowler Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.bowler.Bowler"></a>
+  <div class="doc doc-contents first">
+
+  
+      <p>Represents a bowler in a bowling simulation, including probabilities for striking and sparing,
+as well as personal characteristics like handedness and bowling technique.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>name</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The name of the bowler.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>strike_prob</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>Probability of hitting a strike.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>spare_prob</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>Probability of hitting a spare.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>handedness</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The preferred hand of the bowler, either 'left' or 'right'.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>technique</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The bowling technique used, either 'single' or 'double' handed.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+            <details class="quote">
+              <summary>Source code in <code>trueroll/bowler.py</code></summary>
+              <pre class="highlight"><code class="language-python">class Bowler:
+    """
+    Represents a bowler in a bowling simulation, including probabilities for striking and sparing,
+    as well as personal characteristics like handedness and bowling technique.
+
+    Attributes:
+        name (str): The name of the bowler.
+        strike_prob (float): Probability of hitting a strike.
+        spare_prob (float): Probability of hitting a spare.
+        handedness (str): The preferred hand of the bowler, either 'left' or 'right'.
+        technique (str): The bowling technique used, either 'single' or 'double' handed.
+    """
+
+    def __init__(self, name: str, strike_prob: float, spare_prob: float, handedness: str = 'right', technique: str = 'single'):
+        """
+        Initializes a new instance of Bowler.
+
+        Parameters:
+            name (str): The name of the bowler.
+            strike_prob (float): Probability of hitting a strike, between 0 and 1.
+            spare_prob (float): Probability of hitting a spare, between 0 and 1.
+            handedness (str): The preferred hand of the bowler, either 'left' or 'right' (default 'right').
+            technique (str): The bowling technique used by the bowler, either 'single' or 'double' handed (default 'single').
+
+        Raises:
+            ValueError: If strike_prob or spare_prob is greater than 1.
+        """
+        if not (0 &lt;= strike_prob &lt;= 1):
+            raise ValueError(f"Invalid strike probability {strike_prob}. Must be between 0 and 1.")
+        if not (0 &lt;= spare_prob &lt;= 1):
+            raise ValueError(f"Invalid spare probability {spare_prob}. Must be between 0 and 1.")
+        if handedness not in ['left', 'right']:
+            raise ValueError(f"Invalid handedness '{handedness}'. Must be 'left' or 'right'.")
+        if technique not in ['single', 'double']:
+            raise ValueError(f"Invalid technique '{technique}'. Must be 'single' or 'double'.")
+
+        self.name = name
+        self.strike_prob = strike_prob
+        self.spare_prob = spare_prob
+        self.handedness = handedness
+        self.technique = technique
+
+    def __str__(self):
+        """
+        Returns a string representation of the Bowler instance.
+
+        Returns:
+            str: A string that includes all the attributes of the Bowler.
+        """
+        return (f"Bowler(Name: {self.name}, Strike Probability: {self.strike_prob}, "
+                f"Spare Probability: {self.spare_prob}, Handedness: {self.handedness}, "
+                f"Technique: {self.technique})")</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowler.Bowler.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(name, strike_prob, spare_prob, handedness='right', technique='single')</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes a new instance of Bowler.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>name</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The name of the bowler.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>strike_prob</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>Probability of hitting a strike, between 0 and 1.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>spare_prob</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>Probability of hitting a spare, between 0 and 1.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>handedness</code></b>
+                  (<code>str</code>, default:
+                      <code>&#39;right&#39;</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The preferred hand of the bowler, either 'left' or 'right' (default 'right').</p>
+              </div>
+            </li>
+            <li>
+              <b><code>technique</code></b>
+                  (<code>str</code>, default:
+                      <code>&#39;single&#39;</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The bowling technique used by the bowler, either 'single' or 'double' handed (default 'single').</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If strike_prob or spare_prob is greater than 1.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowler.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, name: str, strike_prob: float, spare_prob: float, handedness: str = 'right', technique: str = 'single'):
+    """
+    Initializes a new instance of Bowler.
+
+    Parameters:
+        name (str): The name of the bowler.
+        strike_prob (float): Probability of hitting a strike, between 0 and 1.
+        spare_prob (float): Probability of hitting a spare, between 0 and 1.
+        handedness (str): The preferred hand of the bowler, either 'left' or 'right' (default 'right').
+        technique (str): The bowling technique used by the bowler, either 'single' or 'double' handed (default 'single').
+
+    Raises:
+        ValueError: If strike_prob or spare_prob is greater than 1.
+    """
+    if not (0 &lt;= strike_prob &lt;= 1):
+        raise ValueError(f"Invalid strike probability {strike_prob}. Must be between 0 and 1.")
+    if not (0 &lt;= spare_prob &lt;= 1):
+        raise ValueError(f"Invalid spare probability {spare_prob}. Must be between 0 and 1.")
+    if handedness not in ['left', 'right']:
+        raise ValueError(f"Invalid handedness '{handedness}'. Must be 'left' or 'right'.")
+    if technique not in ['single', 'double']:
+        raise ValueError(f"Invalid technique '{technique}'. Must be 'single' or 'double'.")
+
+    self.name = name
+    self.strike_prob = strike_prob
+    self.spare_prob = spare_prob
+    self.handedness = handedness
+    self.technique = technique</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowler.Bowler.__str__" class="doc doc-heading">
+          <code class="highlight language-python">__str__()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a string representation of the Bowler instance.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>str</code></b>            –
+            <div class="doc-md-description">
+              <p>A string that includes all the attributes of the Bowler.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowler.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __str__(self):
+    """
+    Returns a string representation of the Bowler instance.
+
+    Returns:
+        str: A string that includes all the attributes of the Bowler.
+    """
+    return (f"Bowler(Name: {self.name}, Strike Probability: {self.strike_prob}, "
+            f"Spare Probability: {self.spare_prob}, Handedness: {self.handedness}, "
+            f"Technique: {self.technique})")</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="scoring-class">Scoring Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.scoring.Scoring"></a>
+  <div class="doc doc-contents first">
+
+
+            <details class="quote">
+              <summary>Source code in <code>trueroll/scoring.py</code></summary>
+              <pre class="highlight"><code class="language-python">class Scoring:
+    @staticmethod
+    def traditional(frames: list) -&gt; int:
+        """
+        Calculate the traditional bowling score from a list of frames.
+
+        Each frame should be represented by a tuple indicating the number of pins knocked down in each roll.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on traditional bowling rules.
+        """
+        score = 0
+
+        for i in range(10):
+            frame = frames[i]
+
+            # Strike
+            if frame[0] == 10:
+                score += 10
+                if i &lt; 9:
+                    next_frame = frames[i + 1]
+                    if next_frame[0] == 10:
+                        score += 10
+                        if i + 1 &lt; 9:
+                            score += frames[i + 2][0]
+                        else:
+                            score += next_frame[1]
+                    else:
+                        score += next_frame[0] + next_frame[1]
+                else:
+                    score += frame[1] + frame[2]
+
+            # Spare
+            elif sum(frame) == 10:
+                score += 10
+                if i &lt; 9:
+                    score += frames[i + 1][0]
+                else:
+                    score += frame[2]
+
+            # Open frame
+            else:
+                score += sum(frame)
+
+        return score
+
+    @staticmethod
+    def current_frame(frames: list) -&gt; int:
+        """
+        Calculate the score using current frame scoring rules, also known as World Bowling scoring.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on current frame (World Bowling) rules.
+        """
+        score = 0
+        for frame in frames:
+            if frame[0] == 10:  # Strike
+                score += 30
+            elif sum(frame) == 10:  # Spare
+                score += 10 + frame[0]
+            else:
+                score += sum(frame)
+        return score
+
+    @staticmethod
+    def nine_pin_no_tap(frames: list) -&gt; int:
+        """
+        Calculate the score for a 9-pin no-tap game, where knocking down 9 pins counts as a strike.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on 9-pin no-tap rules.
+        """
+        score = 0
+        for i, frame in enumerate(frames):
+            first_roll = frame[0]
+            if first_roll == 9 or first_roll == 10:
+                if i &lt; 9:  # Not the last frame
+                    next_frame = frames[i + 1]
+                    score += 10 + next_frame[0] + (next_frame[1] if len(next_frame) &gt; 1 else 0)
+                else:  # Last frame
+                    score += 10 + frame[1] + frame[2]
+            elif sum(frame[:2]) == 10:  # Spare
+                score += 10 + (frames[i + 1][0] if i &lt; 9 else frame[2])
+            else:
+                score += sum(frame)
+        return score</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.scoring.Scoring.current_frame" class="doc doc-heading">
+          <code class="highlight language-python">current_frame(frames)</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the score using current frame scoring rules, also known as World Bowling scoring.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>frames</code></b>
+                  (<code>list</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of tuples representing the game frames.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>int</code></b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>The total score calculated based on current frame (World Bowling) rules.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/scoring.py</code></summary>
+            <pre class="highlight"><code class="language-python">@staticmethod
+def current_frame(frames: list) -&gt; int:
+    """
+    Calculate the score using current frame scoring rules, also known as World Bowling scoring.
+
+    Parameters:
+        frames (list): A list of tuples representing the game frames.
+
+    Returns:
+        int: The total score calculated based on current frame (World Bowling) rules.
+    """
+    score = 0
+    for frame in frames:
+        if frame[0] == 10:  # Strike
+            score += 30
+        elif sum(frame) == 10:  # Spare
+            score += 10 + frame[0]
+        else:
+            score += sum(frame)
+    return score</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.scoring.Scoring.nine_pin_no_tap" class="doc doc-heading">
+          <code class="highlight language-python">nine_pin_no_tap(frames)</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the score for a 9-pin no-tap game, where knocking down 9 pins counts as a strike.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>frames</code></b>
+                  (<code>list</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of tuples representing the game frames.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>int</code></b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>The total score calculated based on 9-pin no-tap rules.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/scoring.py</code></summary>
+            <pre class="highlight"><code class="language-python">@staticmethod
+def nine_pin_no_tap(frames: list) -&gt; int:
+    """
+    Calculate the score for a 9-pin no-tap game, where knocking down 9 pins counts as a strike.
+
+    Parameters:
+        frames (list): A list of tuples representing the game frames.
+
+    Returns:
+        int: The total score calculated based on 9-pin no-tap rules.
+    """
+    score = 0
+    for i, frame in enumerate(frames):
+        first_roll = frame[0]
+        if first_roll == 9 or first_roll == 10:
+            if i &lt; 9:  # Not the last frame
+                next_frame = frames[i + 1]
+                score += 10 + next_frame[0] + (next_frame[1] if len(next_frame) &gt; 1 else 0)
+            else:  # Last frame
+                score += 10 + frame[1] + frame[2]
+        elif sum(frame[:2]) == 10:  # Spare
+            score += 10 + (frames[i + 1][0] if i &lt; 9 else frame[2])
+        else:
+            score += sum(frame)
+    return score</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.scoring.Scoring.traditional" class="doc doc-heading">
+          <code class="highlight language-python">traditional(frames)</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the traditional bowling score from a list of frames.</p>
+<p>Each frame should be represented by a tuple indicating the number of pins knocked down in each roll.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>frames</code></b>
+                  (<code>list</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of tuples representing the game frames.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>int</code></b>(                <code>int</code>
+)            –
+            <div class="doc-md-description">
+              <p>The total score calculated based on traditional bowling rules.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/scoring.py</code></summary>
+            <pre class="highlight"><code class="language-python">@staticmethod
+def traditional(frames: list) -&gt; int:
+    """
+    Calculate the traditional bowling score from a list of frames.
+
+    Each frame should be represented by a tuple indicating the number of pins knocked down in each roll.
+
+    Parameters:
+        frames (list): A list of tuples representing the game frames.
+
+    Returns:
+        int: The total score calculated based on traditional bowling rules.
+    """
+    score = 0
+
+    for i in range(10):
+        frame = frames[i]
+
+        # Strike
+        if frame[0] == 10:
+            score += 10
+            if i &lt; 9:
+                next_frame = frames[i + 1]
+                if next_frame[0] == 10:
+                    score += 10
+                    if i + 1 &lt; 9:
+                        score += frames[i + 2][0]
+                    else:
+                        score += next_frame[1]
+                else:
+                    score += next_frame[0] + next_frame[1]
+            else:
+                score += frame[1] + frame[2]
+
+        # Spare
+        elif sum(frame) == 10:
+            score += 10
+            if i &lt; 9:
+                score += frames[i + 1][0]
+            else:
+                score += frame[2]
+
+        # Open frame
+        else:
+            score += sum(frame)
+
+    return score</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="game-class">Game Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.game.Game"></a>
+  <div class="doc doc-contents first">
+
+  
+      <p>Manages the simulation of a bowling game, providing detailed frame-by-frame results for each bowler.</p>
+<p>This class supports simulations on specified alleys with distinct characteristics, influencing the gameplay of the bowlers.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowlers</code></b>
+                  (<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of <code>Bowler</code> objects participating in the game.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>alley</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Alley" href="#trueroll.alley.Alley">Alley</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The <code>Alley</code> object specifying the lane type and oil pattern where the game is played.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>random_seed</code></b>
+                  (<code><span title="typing.Optional">Optional</span>[int]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Seed for the random number generator to ensure reproducibility, if provided.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+            <details class="quote">
+              <summary>Source code in <code>trueroll/game.py</code></summary>
+              <pre class="highlight"><code class="language-python">class Game:
+    """
+    Manages the simulation of a bowling game, providing detailed frame-by-frame results for each bowler.
+
+    This class supports simulations on specified alleys with distinct characteristics, influencing the gameplay of the bowlers.
+
+    Attributes:
+        bowlers (List[Bowler]): A list of `Bowler` objects participating in the game.
+        alley (Alley): The `Alley` object specifying the lane type and oil pattern where the game is played.
+        random_seed (Optional[int]): Seed for the random number generator to ensure reproducibility, if provided.
+    """
+    def __init__(self, bowlers: List[Bowler], alley: Alley, random_seed: Optional[int] = None):
+        """
+        Initialises a game with a list of bowlers and the alley where the game is played.
+
+        Parameters:
+            bowlers (List[Bowler]): List of Bowler objects participating in the game.
+            alley (Alley): The Alley object specifying the lane type and oil pattern.
+            random_seed (int, optional): Random seed for reproducibility of the simulation.
+        """
+        self.bowlers = bowlers
+        self.alley = alley
+        self.random_seed = random_seed
+
+    def simulate_frame(self, bowler: Bowler, frame_number: int) -&gt; Tuple[int, ...]:
+        """
+        Simulates a single frame for a given bowler based on the frame number.
+
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the frame is simulated.
+            frame_number (int): The frame number (0-indexed, 0-9).
+
+        Returns:
+            Tuple[int, ...]: A tuple representing the result of the frame (pins knocked down in each roll).
+        """
+        if frame_number &lt; 9:
+            return self.simulate_regular_frame(bowler)
+        else:
+            return self.simulate_last_frame(bowler)
+
+    def simulate_regular_frame(self, bowler: Bowler) -&gt; Tuple[int, int]:
+        """
+        Simulates a regular frame (not the last one), accounting for strikes and open frames.
+
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the frame is simulated.
+
+        Returns:
+            Tuple[int, int]: A tuple of two integers representing the pins knocked down in each roll.
+        """
+        strike = np.random.rand() &lt; bowler.strike_prob
+        if strike:
+            return (10, 0)
+        first_roll = np.random.randint(0, 11)
+        second_roll = np.random.randint(0, 11 - first_roll)
+        return (first_roll, second_roll)
+
+    def simulate_last_frame(self, bowler: Bowler) -&gt; Tuple[int, ...]:
+        """
+        Simulates the 10th frame, which may include up to three rolls depending on the bowler's performance.
+
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the last frame is simulated.
+
+        Returns:
+            Tuple[int, int, int]: A tuple of up to three integers representing the pins knocked down in each roll.
+        """
+        rolls = []
+
+        # Simulate the first roll
+        if np.random.rand() &lt; bowler.strike_prob:
+            rolls.append(10)
+        else:
+            rolls.append(np.random.randint(0, 11))
+
+        # Simulate the second roll
+        if rolls[0] == 10:  # First roll was a strike
+            if np.random.rand() &lt; bowler.strike_prob:
+                rolls.append(10)
+            else:
+                rolls.append(np.random.randint(0, 11))
+        else:
+            second_roll = np.random.randint(0, 11 - rolls[0])
+            rolls.append(second_roll)
+
+        # Simulate the third roll if needed
+        if sum(rolls[:2]) &gt;= 10:  # Strike or spare in first two rolls
+            if np.random.rand() &lt; bowler.strike_prob:
+                rolls.append(10)
+            else:
+                rolls.append(np.random.randint(0, 11))
+
+        return tuple(rolls[:3])  # Ensure only up to three rolls are returned
+
+    def frame_by_frame_generator(self) -&gt; Iterator[Dict[str, Tuple[int, ...]]]:
+        """
+        A generator to simulate the game frame-by-frame, yielding results for each frame for all bowlers.
+
+        Yields:
+            Iterator[Dict[str, Tuple[int, ...]]]: An iterator that yields a dictionary representing the frame results of each bowler.
+        """
+        for frame_number in range(10):
+            frame_results = {}
+            for bowler in self.bowlers:
+                frame_results[bowler.name] = self.simulate_frame(bowler, frame_number)
+            yield frame_results
+
+    def simulate_game(self) -&gt; Dict[str, List[Tuple[int, ...]]]:
+        """
+        Simulates a complete game for all bowlers, returning the frame-by-frame results.
+
+        Returns:
+            Dict[str, List[Tuple[int, ...]]]:: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.
+        """
+        if self.random_seed is not None:
+            np.random.seed(self.random_seed)
+        results: Dict[str, List[Tuple[int, ...]]] = {bowler.name: [] for bowler in self.bowlers}
+        for frame_results in self.frame_by_frame_generator():
+            for name, frame in frame_results.items():
+                results[name].append(frame)
+        return results</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(bowlers, alley, random_seed=None)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialises a game with a list of bowlers and the alley where the game is played.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowlers</code></b>
+                  (<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>List of Bowler objects participating in the game.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>alley</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Alley" href="#trueroll.alley.Alley">Alley</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The Alley object specifying the lane type and oil pattern.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>random_seed</code></b>
+                  (<code>int</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Random seed for reproducibility of the simulation.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, bowlers: List[Bowler], alley: Alley, random_seed: Optional[int] = None):
+    """
+    Initialises a game with a list of bowlers and the alley where the game is played.
+
+    Parameters:
+        bowlers (List[Bowler]): List of Bowler objects participating in the game.
+        alley (Alley): The Alley object specifying the lane type and oil pattern.
+        random_seed (int, optional): Random seed for reproducibility of the simulation.
+    """
+    self.bowlers = bowlers
+    self.alley = alley
+    self.random_seed = random_seed</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.frame_by_frame_generator" class="doc doc-heading">
+          <code class="highlight language-python">frame_by_frame_generator()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A generator to simulate the game frame-by-frame, yielding results for each frame for all bowlers.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Yields:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Dict">Dict</span>[str, <span title="typing.Tuple">Tuple</span>[int, ...]]</code>
+              –
+              <div class="doc-md-description">
+                <p>Iterator[Dict[str, Tuple[int, ...]]]: An iterator that yields a dictionary representing the frame results of each bowler.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def frame_by_frame_generator(self) -&gt; Iterator[Dict[str, Tuple[int, ...]]]:
+    """
+    A generator to simulate the game frame-by-frame, yielding results for each frame for all bowlers.
+
+    Yields:
+        Iterator[Dict[str, Tuple[int, ...]]]: An iterator that yields a dictionary representing the frame results of each bowler.
+    """
+    for frame_number in range(10):
+        frame_results = {}
+        for bowler in self.bowlers:
+            frame_results[bowler.name] = self.simulate_frame(bowler, frame_number)
+        yield frame_results</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.simulate_frame" class="doc doc-heading">
+          <code class="highlight language-python">simulate_frame(bowler, frame_number)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulates a single frame for a given bowler based on the frame number.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowler</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The Bowler object for whom the frame is simulated.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>frame_number</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The frame number (0-indexed, 0-9).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Tuple">Tuple</span>[int, ...]</code>
+            –
+            <div class="doc-md-description">
+              <p>Tuple[int, ...]: A tuple representing the result of the frame (pins knocked down in each roll).</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def simulate_frame(self, bowler: Bowler, frame_number: int) -&gt; Tuple[int, ...]:
+    """
+    Simulates a single frame for a given bowler based on the frame number.
+
+    Parameters:
+        bowler (Bowler): The Bowler object for whom the frame is simulated.
+        frame_number (int): The frame number (0-indexed, 0-9).
+
+    Returns:
+        Tuple[int, ...]: A tuple representing the result of the frame (pins knocked down in each roll).
+    """
+    if frame_number &lt; 9:
+        return self.simulate_regular_frame(bowler)
+    else:
+        return self.simulate_last_frame(bowler)</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.simulate_game" class="doc doc-heading">
+          <code class="highlight language-python">simulate_game()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulates a complete game for all bowlers, returning the frame-by-frame results.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Dict">Dict</span>[str, <span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[int, ...]]]</code>
+            –
+            <div class="doc-md-description">
+              <p>Dict[str, List[Tuple[int, ...]]]:: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def simulate_game(self) -&gt; Dict[str, List[Tuple[int, ...]]]:
+    """
+    Simulates a complete game for all bowlers, returning the frame-by-frame results.
+
+    Returns:
+        Dict[str, List[Tuple[int, ...]]]:: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.
+    """
+    if self.random_seed is not None:
+        np.random.seed(self.random_seed)
+    results: Dict[str, List[Tuple[int, ...]]] = {bowler.name: [] for bowler in self.bowlers}
+    for frame_results in self.frame_by_frame_generator():
+        for name, frame in frame_results.items():
+            results[name].append(frame)
+    return results</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.simulate_last_frame" class="doc doc-heading">
+          <code class="highlight language-python">simulate_last_frame(bowler)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulates the 10th frame, which may include up to three rolls depending on the bowler's performance.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowler</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The Bowler object for whom the last frame is simulated.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Tuple">Tuple</span>[int, ...]</code>
+            –
+            <div class="doc-md-description">
+              <p>Tuple[int, int, int]: A tuple of up to three integers representing the pins knocked down in each roll.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def simulate_last_frame(self, bowler: Bowler) -&gt; Tuple[int, ...]:
+    """
+    Simulates the 10th frame, which may include up to three rolls depending on the bowler's performance.
+
+    Parameters:
+        bowler (Bowler): The Bowler object for whom the last frame is simulated.
+
+    Returns:
+        Tuple[int, int, int]: A tuple of up to three integers representing the pins knocked down in each roll.
+    """
+    rolls = []
+
+    # Simulate the first roll
+    if np.random.rand() &lt; bowler.strike_prob:
+        rolls.append(10)
+    else:
+        rolls.append(np.random.randint(0, 11))
+
+    # Simulate the second roll
+    if rolls[0] == 10:  # First roll was a strike
+        if np.random.rand() &lt; bowler.strike_prob:
+            rolls.append(10)
+        else:
+            rolls.append(np.random.randint(0, 11))
+    else:
+        second_roll = np.random.randint(0, 11 - rolls[0])
+        rolls.append(second_roll)
+
+    # Simulate the third roll if needed
+    if sum(rolls[:2]) &gt;= 10:  # Strike or spare in first two rolls
+        if np.random.rand() &lt; bowler.strike_prob:
+            rolls.append(10)
+        else:
+            rolls.append(np.random.randint(0, 11))
+
+    return tuple(rolls[:3])  # Ensure only up to three rolls are returned</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.game.Game.simulate_regular_frame" class="doc doc-heading">
+          <code class="highlight language-python">simulate_regular_frame(bowler)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulates a regular frame (not the last one), accounting for strikes and open frames.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowler</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The Bowler object for whom the frame is simulated.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Tuple">Tuple</span>[int, int]</code>
+            –
+            <div class="doc-md-description">
+              <p>Tuple[int, int]: A tuple of two integers representing the pins knocked down in each roll.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/game.py</code></summary>
+            <pre class="highlight"><code class="language-python">def simulate_regular_frame(self, bowler: Bowler) -&gt; Tuple[int, int]:
+    """
+    Simulates a regular frame (not the last one), accounting for strikes and open frames.
+
+    Parameters:
+        bowler (Bowler): The Bowler object for whom the frame is simulated.
+
+    Returns:
+        Tuple[int, int]: A tuple of two integers representing the pins knocked down in each roll.
+    """
+    strike = np.random.rand() &lt; bowler.strike_prob
+    if strike:
+        return (10, 0)
+    first_roll = np.random.randint(0, 11)
+    second_roll = np.random.randint(0, 11 - first_roll)
+    return (first_roll, second_roll)</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="tournament-class">Tournament Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.tournament.Tournament"></a>
+  <div class="doc doc-contents first">
+
+
+            <details class="quote">
+              <summary>Source code in <code>trueroll/tournament.py</code></summary>
+              <pre class="highlight"><code class="language-python">class Tournament:
+    def __init__(self, bowlers: List[Bowler], alley: Alley, num_games: int = 1):
+        """
+        Initialize a Tournament instance with bowlers, the alley where the tournament is played, and the number of games each bowler will play.
+
+        Parameters:
+            bowlers (List[Bowler]): A list of `Bowler` objects representing the participants.
+            alley (Alley): The `Alley` object representing the venue of the tournament.
+            num_games (int): The number of games each bowler will play in the tournament.
+
+        Attributes:
+            results (Dict[str, List[List[int]]]): A dictionary to store results for each bowler.
+        """
+        self.bowlers = bowlers
+        self.alley = alley
+        self.num_games = num_games
+        self.results: Dict[str, List[List[Tuple[int, ...]]]] = {bowler.name: [] for bowler in bowlers}
+        # self.results = {bowler.name: [] for bowler in bowlers}
+
+    def run_tournament(self):
+        """
+        Simulate the entire tournament, running the specified number of games for each bowler.
+        """
+        for _ in range(self.num_games):
+            game = Game(self.bowlers, self.alley)
+            game_results = game.simulate_game()
+            for name, scores in game_results.items():
+                self.results[name].append(scores)
+
+    def get_results(self) -&gt; Dict[str, List[int]]:
+        """
+        Calculate and return the total scores for each bowler over the course of the tournament.
+
+        Returns:
+            Dict[str, List[int]]: A dictionary with bowler names as keys and lists of their total scores for each game as values.
+        """
+        total_scores = {name: [sum(sum(frame) for frame in game) for game in games] for name, games in self.results.items()}
+        return total_scores
+
+    def get_average_scores(self) -&gt; Dict[str, float]:
+        """
+        Calculate and return the average scores for each bowler in the tournament.
+
+        Returns:
+            Dict[str, float]: A dictionary with bowler names as keys and their average score as values.
+        """
+        average_scores = {name: sum(scores) / len(scores) if scores else 0 for name, scores in self.get_results().items()}
+        return average_scores</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.tournament.Tournament.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(bowlers, alley, num_games=1)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialize a Tournament instance with bowlers, the alley where the tournament is played, and the number of games each bowler will play.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowlers</code></b>
+                  (<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of <code>Bowler</code> objects representing the participants.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>alley</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Alley" href="#trueroll.alley.Alley">Alley</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The <code>Alley</code> object representing the venue of the tournament.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>num_games</code></b>
+                  (<code>int</code>, default:
+                      <code>1</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The number of games each bowler will play in the tournament.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>results</code></b>
+                  (<code><span title="typing.Dict">Dict</span>[str, <span title="typing.List">List</span>[<span title="typing.List">List</span>[int]]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A dictionary to store results for each bowler.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/tournament.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, bowlers: List[Bowler], alley: Alley, num_games: int = 1):
+    """
+    Initialize a Tournament instance with bowlers, the alley where the tournament is played, and the number of games each bowler will play.
+
+    Parameters:
+        bowlers (List[Bowler]): A list of `Bowler` objects representing the participants.
+        alley (Alley): The `Alley` object representing the venue of the tournament.
+        num_games (int): The number of games each bowler will play in the tournament.
+
+    Attributes:
+        results (Dict[str, List[List[int]]]): A dictionary to store results for each bowler.
+    """
+    self.bowlers = bowlers
+    self.alley = alley
+    self.num_games = num_games
+    self.results: Dict[str, List[List[Tuple[int, ...]]]] = {bowler.name: [] for bowler in bowlers}</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.tournament.Tournament.get_average_scores" class="doc doc-heading">
+          <code class="highlight language-python">get_average_scores()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate and return the average scores for each bowler in the tournament.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Dict">Dict</span>[str, float]</code>
+            –
+            <div class="doc-md-description">
+              <p>Dict[str, float]: A dictionary with bowler names as keys and their average score as values.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/tournament.py</code></summary>
+            <pre class="highlight"><code class="language-python">def get_average_scores(self) -&gt; Dict[str, float]:
+    """
+    Calculate and return the average scores for each bowler in the tournament.
+
+    Returns:
+        Dict[str, float]: A dictionary with bowler names as keys and their average score as values.
+    """
+    average_scores = {name: sum(scores) / len(scores) if scores else 0 for name, scores in self.get_results().items()}
+    return average_scores</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.tournament.Tournament.get_results" class="doc doc-heading">
+          <code class="highlight language-python">get_results()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate and return the total scores for each bowler over the course of the tournament.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Dict">Dict</span>[str, <span title="typing.List">List</span>[int]]</code>
+            –
+            <div class="doc-md-description">
+              <p>Dict[str, List[int]]: A dictionary with bowler names as keys and lists of their total scores for each game as values.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/tournament.py</code></summary>
+            <pre class="highlight"><code class="language-python">def get_results(self) -&gt; Dict[str, List[int]]:
+    """
+    Calculate and return the total scores for each bowler over the course of the tournament.
+
+    Returns:
+        Dict[str, List[int]]: A dictionary with bowler names as keys and lists of their total scores for each game as values.
+    """
+    total_scores = {name: [sum(sum(frame) for frame in game) for game in games] for name, games in self.results.items()}
+    return total_scores</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.tournament.Tournament.run_tournament" class="doc doc-heading">
+          <code class="highlight language-python">run_tournament()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulate the entire tournament, running the specified number of games for each bowler.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>trueroll/tournament.py</code></summary>
+            <pre class="highlight"><code class="language-python">def run_tournament(self):
+    """
+    Simulate the entire tournament, running the specified number of games for each bowler.
+    """
+    for _ in range(self.num_games):
+        game = Game(self.bowlers, self.alley)
+        game_results = game.simulate_game()
+        for name, scores in game_results.items():
+            self.results[name].append(scores)</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="bowlingdatabase-class">BowlingDatabase Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.bowling_database.BowlingDatabase"></a>
+  <div class="doc doc-contents first">
+
+  
+      <p>Handles the storage and retrieval of bowling simulation data in an SQLite database.
+Provides methods to add and manage bowlers, alleys, games, and detailed game statistics.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+              <pre class="highlight"><code class="language-python">class BowlingDatabase:
+    """
+    Handles the storage and retrieval of bowling simulation data in an SQLite database.
+    Provides methods to add and manage bowlers, alleys, games, and detailed game statistics.
+    """
+
+    def __init__(self, db_name: str = 'bowling.db'):
+        """
+        Initialises the database connection and creates tables if they do not already exist.
+
+        Args:
+            db_name (str): The filename of the database. Defaults to 'bowling.db'.
+        """
+        self.db_name = db_name
+        self.conn = sqlite3.connect(self.db_name)
+        self.create_tables()
+
+    def create_tables(self):
+        """
+        Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details.
+        """
+        c = self.conn.cursor()
+
+        # Create tables
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Bowlers (
+            BowlerID INTEGER PRIMARY KEY,
+            Name TEXT UNIQUE,
+            Handedness TEXT,
+            Style TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Alleys (
+            AlleyID INTEGER PRIMARY KEY,
+            Name TEXT,
+            Location TEXT,
+            LaneType TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS OilPatterns (
+            PatternID INTEGER PRIMARY KEY,
+            Name TEXT,
+            Description TEXT
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS Games (
+            GameID INTEGER PRIMARY KEY,
+            Date TEXT,
+            AlleyID INTEGER,
+            OilPatternID INTEGER,
+            FOREIGN KEY (AlleyID) REFERENCES Alleys(AlleyID),
+            FOREIGN KEY (OilPatternID) REFERENCES OilPatterns(PatternID)
+        )
+        ''')
+
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS GameDetails (
+            GameID INTEGER,
+            BowlerID INTEGER,
+            FrameData TEXT,
+            TotalScore INTEGER,
+            StrikePercentage REAL,
+            SparePercentage REAL,
+            FOREIGN KEY (GameID) REFERENCES Games(GameID),
+            FOREIGN KEY (BowlerID) REFERENCES Bowlers(BowlerID)
+        )
+        ''')
+
+        # Commit changes
+        self.conn.commit()
+
+    def add_bowler(self, bowler: 'Bowler'):
+        """
+        Adds a new bowler to the database or updates an existing bowler with the same name.
+
+        Args:
+            bowler (Bowler): An instance of the Bowler class containing bowler data.
+
+        Returns:
+            int: The database ID of the added or updated bowler.
+        """
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT INTO Bowlers (Name, Handedness, Style)
+            VALUES (?, ?, ?) ON CONFLICT(Name) DO UPDATE SET
+            Handedness=excluded.Handedness, Style=excluded.Style
+        ''', (bowler.name, bowler.handedness, bowler.technique))
+        self.conn.commit()
+        return c.lastrowid
+
+    def add_alley(self, alley: 'Alley'):
+        """
+        Adds a new bowling alley to the database.
+
+        Args:
+            alley (Alley): An instance of the Alley class containing alley data.
+
+        Returns:
+            int: The database ID of the added alley.
+        """
+        c = self.conn.cursor()
+        c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)',
+                  (alley.name, alley.location, alley.lane_type))
+        self.conn.commit()
+        return c.lastrowid
+
+    def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[Tuple[int, ...]]):
+        """
+        Adds a new game along with detailed frame data to the database.
+
+        Args:
+            date (str): The date the game was played.
+            alley_id (int): The database ID of the alley where the game was played.
+            oil_pattern_id (int): The database ID of the oil pattern used in the game.
+            frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
+        """
+        c = self.conn.cursor()
+        c.execute('INSERT INTO Games (Date, AlleyID, OilPatternID) VALUES (?, ?, ?)', (date, alley_id, oil_pattern_id))
+        game_id = c.lastrowid
+        total_score, strike_percentage, spare_percentage = self.calculate_stats(frames)
+        c.execute('''
+            INSERT INTO GameDetails (GameID, FrameData, TotalScore, StrikePercentage, SparePercentage)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (game_id, str(frames), total_score, strike_percentage, spare_percentage))
+        self.conn.commit()
+
+    def calculate_stats(self, frames: List[Tuple[int, ...]]) -&gt; Tuple[int, float, float]:
+        """
+        Calculate total score, strike, and spare percentages from frame data.
+
+        Args:
+            frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
+
+        Returns:
+            Tuple[int, float, float]: A tuple containing the total score, strike percentage, and spare percentage.
+        """
+        total_score = 0  # Implement scoring calculation based on rules
+        strikes = sum(1 for frame in frames if frame[0] == 10)
+        spares = sum(1 for frame in frames if sum(frame[:2]) == 10 and frame[0] != 10)
+        total_frames = len(frames)
+        strike_percentage = (strikes / total_frames) * 100
+        spare_percentage = (spares / total_frames) * 100
+        return total_score, strike_percentage, spare_percentage
+
+    def close(self):
+        """
+        Closes the database connection.
+        """
+        self.conn.close()</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(db_name='bowling.db')</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialises the database connection and creates tables if they do not already exist.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>db_name</code></b>
+                  (<code>str</code>, default:
+                      <code>&#39;bowling.db&#39;</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The filename of the database. Defaults to 'bowling.db'.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, db_name: str = 'bowling.db'):
+    """
+    Initialises the database connection and creates tables if they do not already exist.
+
+    Args:
+        db_name (str): The filename of the database. Defaults to 'bowling.db'.
+    """
+    self.db_name = db_name
+    self.conn = sqlite3.connect(self.db_name)
+    self.create_tables()</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.add_alley" class="doc doc-heading">
+          <code class="highlight language-python">add_alley(alley)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adds a new bowling alley to the database.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>alley</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Alley" href="#trueroll.alley.Alley">Alley</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>An instance of the Alley class containing alley data.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>int</code></b>            –
+            <div class="doc-md-description">
+              <p>The database ID of the added alley.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def add_alley(self, alley: 'Alley'):
+    """
+    Adds a new bowling alley to the database.
+
+    Args:
+        alley (Alley): An instance of the Alley class containing alley data.
+
+    Returns:
+        int: The database ID of the added alley.
+    """
+    c = self.conn.cursor()
+    c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)',
+              (alley.name, alley.location, alley.lane_type))
+    self.conn.commit()
+    return c.lastrowid</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.add_bowler" class="doc doc-heading">
+          <code class="highlight language-python">add_bowler(bowler)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adds a new bowler to the database or updates an existing bowler with the same name.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>bowler</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>An instance of the Bowler class containing bowler data.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+<b><code>int</code></b>            –
+            <div class="doc-md-description">
+              <p>The database ID of the added or updated bowler.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def add_bowler(self, bowler: 'Bowler'):
+    """
+    Adds a new bowler to the database or updates an existing bowler with the same name.
+
+    Args:
+        bowler (Bowler): An instance of the Bowler class containing bowler data.
+
+    Returns:
+        int: The database ID of the added or updated bowler.
+    """
+    c = self.conn.cursor()
+    c.execute('''
+        INSERT INTO Bowlers (Name, Handedness, Style)
+        VALUES (?, ?, ?) ON CONFLICT(Name) DO UPDATE SET
+        Handedness=excluded.Handedness, Style=excluded.Style
+    ''', (bowler.name, bowler.handedness, bowler.technique))
+    self.conn.commit()
+    return c.lastrowid</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.add_game" class="doc doc-heading">
+          <code class="highlight language-python">add_game(date, alley_id, oil_pattern_id, frames)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adds a new game along with detailed frame data to the database.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>date</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The date the game was played.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>alley_id</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The database ID of the alley where the game was played.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>oil_pattern_id</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The database ID of the oil pattern used in the game.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>frames</code></b>
+                  (<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[int, ...]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of tuples representing the frames played in the game.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[Tuple[int, ...]]):
+    """
+    Adds a new game along with detailed frame data to the database.
+
+    Args:
+        date (str): The date the game was played.
+        alley_id (int): The database ID of the alley where the game was played.
+        oil_pattern_id (int): The database ID of the oil pattern used in the game.
+        frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
+    """
+    c = self.conn.cursor()
+    c.execute('INSERT INTO Games (Date, AlleyID, OilPatternID) VALUES (?, ?, ?)', (date, alley_id, oil_pattern_id))
+    game_id = c.lastrowid
+    total_score, strike_percentage, spare_percentage = self.calculate_stats(frames)
+    c.execute('''
+        INSERT INTO GameDetails (GameID, FrameData, TotalScore, StrikePercentage, SparePercentage)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (game_id, str(frames), total_score, strike_percentage, spare_percentage))
+    self.conn.commit()</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.calculate_stats" class="doc doc-heading">
+          <code class="highlight language-python">calculate_stats(frames)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate total score, strike, and spare percentages from frame data.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>frames</code></b>
+                  (<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[int, ...]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of tuples representing the frames played in the game.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+                <code><span title="typing.Tuple">Tuple</span>[int, float, float]</code>
+            –
+            <div class="doc-md-description">
+              <p>Tuple[int, float, float]: A tuple containing the total score, strike percentage, and spare percentage.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def calculate_stats(self, frames: List[Tuple[int, ...]]) -&gt; Tuple[int, float, float]:
+    """
+    Calculate total score, strike, and spare percentages from frame data.
+
+    Args:
+        frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
+
+    Returns:
+        Tuple[int, float, float]: A tuple containing the total score, strike percentage, and spare percentage.
+    """
+    total_score = 0  # Implement scoring calculation based on rules
+    strikes = sum(1 for frame in frames if frame[0] == 10)
+    spares = sum(1 for frame in frames if sum(frame[:2]) == 10 and frame[0] != 10)
+    total_frames = len(frames)
+    strike_percentage = (strikes / total_frames) * 100
+    spare_percentage = (spares / total_frames) * 100
+    return total_score, strike_percentage, spare_percentage</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.close" class="doc doc-heading">
+          <code class="highlight language-python">close()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Closes the database connection.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def close(self):
+    """
+    Closes the database connection.
+    """
+    self.conn.close()</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.bowling_database.BowlingDatabase.create_tables" class="doc doc-heading">
+          <code class="highlight language-python">create_tables()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details.</p>
+
+          <details class="quote">
+            <summary>Source code in <code>trueroll/bowling_database.py</code></summary>
+            <pre class="highlight"><code class="language-python">def create_tables(self):
+    """
+    Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details.
+    """
+    c = self.conn.cursor()
+
+    # Create tables
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS Bowlers (
+        BowlerID INTEGER PRIMARY KEY,
+        Name TEXT UNIQUE,
+        Handedness TEXT,
+        Style TEXT
+    )
+    ''')
+
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS Alleys (
+        AlleyID INTEGER PRIMARY KEY,
+        Name TEXT,
+        Location TEXT,
+        LaneType TEXT
+    )
+    ''')
+
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS OilPatterns (
+        PatternID INTEGER PRIMARY KEY,
+        Name TEXT,
+        Description TEXT
+    )
+    ''')
+
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS Games (
+        GameID INTEGER PRIMARY KEY,
+        Date TEXT,
+        AlleyID INTEGER,
+        OilPatternID INTEGER,
+        FOREIGN KEY (AlleyID) REFERENCES Alleys(AlleyID),
+        FOREIGN KEY (OilPatternID) REFERENCES OilPatterns(PatternID)
+    )
+    ''')
+
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS GameDetails (
+        GameID INTEGER,
+        BowlerID INTEGER,
+        FrameData TEXT,
+        TotalScore INTEGER,
+        StrikePercentage REAL,
+        SparePercentage REAL,
+        FOREIGN KEY (GameID) REFERENCES Games(GameID),
+        FOREIGN KEY (BowlerID) REFERENCES Bowlers(BowlerID)
+    )
+    ''')
+
+    # Commit changes
+    self.conn.commit()</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div><h1 id="league-class">League Class</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="trueroll.league.League"></a>
+  <div class="doc doc-contents first">
+
+
+            <details class="quote">
+              <summary>Source code in <code>trueroll/league.py</code></summary>
+              <pre class="highlight"><code class="language-python">class League:
+    def __init__(self, name: str, alley: Alley, oil_pattern: str, team_size: int, num_games_per_night: int, season_length: int):
+        """
+        Initialises a league with specified parameters, setting up the environment where the league games are played,
+        the type of oil pattern used, the team size, the number of games per league night, and the duration of the season.
+
+        Args:
+            name (str): The name of the league.
+            alley (Alley): An Alley object where the league games are held.
+            oil_pattern (str): The oil pattern used on the lanes throughout the season.
+            team_size (int): The number of bowlers in each team.
+            num_games_per_night (int): The number of games played each league night.
+            season_length (int): The number of weeks the league runs.
+
+        Attributes:
+            teams (List[List[Bowler]]): Stores the teams participating in the league.
+        """
+        self.name = name
+        self.alley = alley
+        self.oil_pattern = oil_pattern
+        self.team_size = team_size
+        self.num_games_per_night = num_games_per_night
+        self.season_length = season_length
+        self.teams: List[List[Bowler]] = []
+        # self.teams = []  # List of teams, each team is a list of Bowler objects
+
+    def add_team(self, team: List[Bowler]):
+        """
+        Adds a team to the league. Ensures the team size matches the league's required team size.
+
+        Args:
+            team (List[Bowler]): A list of Bowler objects making up the team.
+
+        Raises:
+            ValueError: If the number of bowlers in the team does not match the league's specified team size.
+        """
+        if len(team) != self.team_size:
+            raise ValueError("Team size must match the league's specified team size")
+        self.teams.append(team)
+
+    def run_season(self):
+        """
+        Simulates the entire season of the league, organising games per night for each team over the specified season length.
+
+        Returns:
+            Dict[str, List[Dict[str, float]]]: A dictionary with team names as keys and a list of their average scores per night as values.
+        """
+        results = {f"Team {i+1}": [] for i in range(len(self.teams))}
+        for week in range(self.season_length):
+            for i, team in enumerate(self.teams):
+                tournament = Tournament(team, self.alley, self.num_games_per_night)
+                tournament.run_tournament()
+                results[f"Team {i+1}"].append(tournament.get_average_scores())
+        return results</code></pre>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.league.League.__init__" class="doc doc-heading">
+          <code class="highlight language-python">__init__(name, alley, oil_pattern, team_size, num_games_per_night, season_length)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialises a league with specified parameters, setting up the environment where the league games are played,
+the type of oil pattern used, the team size, the number of games per league night, and the duration of the season.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>name</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The name of the league.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>alley</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="trueroll.Alley" href="#trueroll.alley.Alley">Alley</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>An Alley object where the league games are held.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>oil_pattern</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The oil pattern used on the lanes throughout the season.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>team_size</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The number of bowlers in each team.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>num_games_per_night</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The number of games played each league night.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>season_length</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The number of weeks the league runs.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>teams</code></b>
+                  (<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a>]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Stores the teams participating in the league.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/league.py</code></summary>
+            <pre class="highlight"><code class="language-python">def __init__(self, name: str, alley: Alley, oil_pattern: str, team_size: int, num_games_per_night: int, season_length: int):
+    """
+    Initialises a league with specified parameters, setting up the environment where the league games are played,
+    the type of oil pattern used, the team size, the number of games per league night, and the duration of the season.
+
+    Args:
+        name (str): The name of the league.
+        alley (Alley): An Alley object where the league games are held.
+        oil_pattern (str): The oil pattern used on the lanes throughout the season.
+        team_size (int): The number of bowlers in each team.
+        num_games_per_night (int): The number of games played each league night.
+        season_length (int): The number of weeks the league runs.
+
+    Attributes:
+        teams (List[List[Bowler]]): Stores the teams participating in the league.
+    """
+    self.name = name
+    self.alley = alley
+    self.oil_pattern = oil_pattern
+    self.team_size = team_size
+    self.num_games_per_night = num_games_per_night
+    self.season_length = season_length
+    self.teams: List[List[Bowler]] = []</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.league.League.add_team" class="doc doc-heading">
+          <code class="highlight language-python">add_team(team)</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adds a team to the league. Ensures the team size matches the league's required team size.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>team</code></b>
+                  (<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="trueroll.Bowler" href="#trueroll.bowler.Bowler">Bowler</a>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A list of Bowler objects making up the team.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the number of bowlers in the team does not match the league's specified team size.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/league.py</code></summary>
+            <pre class="highlight"><code class="language-python">def add_team(self, team: List[Bowler]):
+    """
+    Adds a team to the league. Ensures the team size matches the league's required team size.
+
+    Args:
+        team (List[Bowler]): A list of Bowler objects making up the team.
+
+    Raises:
+        ValueError: If the number of bowlers in the team does not match the league's specified team size.
+    """
+    if len(team) != self.team_size:
+        raise ValueError("Team size must match the league's specified team size")
+    self.teams.append(team)</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="trueroll.league.League.run_season" class="doc doc-heading">
+          <code class="highlight language-python">run_season()</code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Simulates the entire season of the league, organising games per night for each team over the specified season length.</p>
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
+            –
+            <div class="doc-md-description">
+              <p>Dict[str, List[Dict[str, float]]]: A dictionary with team names as keys and a list of their average scores per night as values.</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+          <details class="quote">
+            <summary>Source code in <code>trueroll/league.py</code></summary>
+            <pre class="highlight"><code class="language-python">def run_season(self):
+    """
+    Simulates the entire season of the league, organising games per night for each team over the specified season length.
+
+    Returns:
+        Dict[str, List[Dict[str, float]]]: A dictionary with team names as keys and a list of their average scores per night as values.
+    """
+    results = {f"Team {i+1}": [] for i in range(len(self.teams))}
+    for week in range(self.season_length):
+        for i, team in enumerate(self.teams):
+            tournament = Tournament(team, self.alley, self.num_games_per_night)
+            tournament.run_tournament()
+            results[f"Team {i+1}"].append(tournament.get_average_scores())
+    return results</code></pre>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contribute/" class="btn btn-neutral float-right" title="Contribute">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
