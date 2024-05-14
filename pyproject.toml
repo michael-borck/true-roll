@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "trueroll"
 version = "0.1.0"
-description = "TrueRoll is a versatile ten-pin bowling simulation library designed to model games, analyze player performance, and explore the effects of different bowling conditions."
+description = "TrueRoll is a versatile ten-pin bowling simulation library designed to model games, analyse player performance, and explore the effects of different bowling conditions."
 authors = ["Michael Borck <michael@borck.me>"]
 license = "MIT"
 readme = "README.md"
