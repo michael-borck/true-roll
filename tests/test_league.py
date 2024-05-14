@@ -1,7 +1,5 @@
 import pytest
-from trueroll import Bowler
-from trueroll import Alley
-from trueroll import League
+from trueroll import Bowler, Alley, League
 
 
 def test_league_initialization():

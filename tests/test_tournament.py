@@ -1,7 +1,5 @@
 import pytest
-from trueroll import Bowler
-from trueroll import Alley
-from trueroll import Tournament
+from trueroll import Bowler, Alley, Tournament
 
 @pytest.fixture
 def sample_bowlers():

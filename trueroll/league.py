@@ -1,7 +1,6 @@
 from typing import List
-from trueroll import Bowler
-from trueroll import Alley
-from trueroll import Tournament
+from trueroll import Bowler. Alley, Tournament
+
 
 class League:
     def __init__(self, name: str, alley: Alley, oil_pattern: str, team_size: int, num_games_per_night: int, season_length: int):
