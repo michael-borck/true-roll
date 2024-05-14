@@ -1,71 +1,43 @@
 # TrueRoll: Ten-Pin Bowling Simulation
 
-TrueRoll is a Python library for simulating ten-pin bowling games, including
-different scoring systems and statistical analysis of games. The project also
-allows simulating various bowlers and alleys to study how different conditions
-affect the game outcomes.
+TrueRoll is an extensive simulation toolkit designed for modeling ten-pin bowling games. It offers a comprehensive suite of classes that simulate games, tournaments, leagues, and more, providing a realistic and detailed representation of bowling dynamics. The project also includes a scoring system compatible with various bowling rules, a database for persisting game results, and an environment setup using poetry for easy package management.
 
 ## Features
 
-- Simulate ten-pin bowling games with customizable player and alley
-  characteristics.
-- Supports traditional scoring, current frame scoring, and 9-pin no-tap scoring
-  systems.
-- Analyze game statistics such as average scores, strike percentages, and spare
-  percentages.
-- Store and retrieve game, bowler, and alley data using a SQLite database for
-  historical analysis.
+- **Simulation Classes**: Simulate bowling games frame by frame or as complete games using different probabilities for strikes, spares, and opens.
+- **Scoring Systems**: Includes traditional, current frame, and 9-pin no-tap scoring systems.
+- **Bowling Database**: A SQLite database integration for storing and managing bowling games, bowlers, alleys, and tournaments.
+- **League and Tournament Support**: Organize and run bowling tournaments and leagues with multiple games and multiple bowlers, customizable for different team sizes and frequencies.
+- **Documentation**: Auto-generated API documentation using MkDocs for easy reference and usage.
 
-## Installation
+## Getting Started
 
-TrueRoll requires Python 3.7+.
-
-1. Clone the repository:
+1. **Installation**: Clone the repository and install dependencies using Poetry.
    ```bash
-   git clone https://github.com/yourgithubusername/trueroll.git
+   git clone https://github.com/your-github/trueroll.git
    cd trueroll
-   ```
-
-2. Install the project with Poetry:
-   ```bash
    poetry install
    ```
 
-This will install all necessary dependencies and set up a virtual environment.
+2. **Running Simulations**: You can start simulations directly from the command line or by using the provided Python scripts.
+   ```python
+   python -m trueroll
+   ```
 
-## Usage
+3. **Documentation**: To build and view the documentation locally:
+   ```bash
+   poetry run mkdocs serve
+   ```
 
-To start simulating bowling games, you can use the modules provided in the
-`trueroll` package. Here is a simple example:
+4. **Testing**: Run tests using the integrated testing suite to ensure everything is working as expected.
+   ```bash
+   poetry run pytest
+   ```
 
-```python
-from trueroll.bowler import Bowler
-from trueroll.game import Game
-from trueroll.alley import Alley
+## Contribution
 
-# Create instances of Bowler and Alley
-bowler = Bowler(name="John Doe", handedness="Left", style="Two-handed")
-alley = Alley(name="High Strike Bowling", location="Downtown", lane_type="Synthetic")
-
-# Simulate a game
-game = Game(bowler, alley)
-results = game.run_simulation()
-print(results)
-```
-
-## Testing
-
-Run tests using pytest:
-```bash
-poetry run pytest
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests, suggest
-features, or report bugs.
+Contributions are welcome! Please read the contributing guide for directions on how to submit pull requests to the project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
-for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
