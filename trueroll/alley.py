@@ -8,7 +8,7 @@ class Alley:
         lane_type (str): The type of lane surface, such as 'Wood' or 'Synthetic'.
     """
 
-    VALID_LANE_TYPES = {'hardwood', 'wood', 'synthetic'}
+    VALID_LANE_TYPES = {'wood', 'synthetic'}
 
     def __init__(self, name: str, location: str, lane_type: str):
         """

@@ -3,7 +3,7 @@ from trueroll import Bowler, Alley, League
 
 
 def test_league_initialisation():
-    alley = Alley("Pin Palace", "Suburban", "Hardwood")
+    alley = Alley(name="Pin Palace", location="Suburban", lane_type="Wood")
     league = League("City League", alley, "Medium Oil", 4, 3, 10)
     assert league.name == "City League"
     assert league.alley == alley
@@ -14,7 +14,7 @@ def test_league_initialisation():
 
 
 def test_add_team():
-    alley = Alley("Pin Palace", "Suburban", "Hardwood")
+    alley = Alley(name="Pin Palace", location="Suburban", lane_type="Wood")
     league = League("City League", alley, "Medium Oil", 2, 3, 10)
     team = [Bowler("John Doe", 0.3, 0.5), Bowler("Jane Doe", 0.25, 0.6)]
     league.add_team(team)
@@ -23,7 +23,7 @@ def test_add_team():
 
 
 def test_add_team_with_incorrect_size():
-    alley = Alley("Pin Palace", "Suburban", "Hardwood")
+    alley = Alley(name="Pin Palace", location="Suburban", lane_type="Wood")
     league = League("City League", alley, "Medium Oil", 3, 3, 10)
     team = [Bowler("John Doe", 0.3, 0.5), Bowler("Jane Doe", 0.25, 0.6)]  # Only 2 bowlers
     with pytest.raises(ValueError):
@@ -31,7 +31,7 @@ def test_add_team_with_incorrect_size():
 
 
 def test_run_season():
-    alley = Alley("Pin Palace", "Suburban", "Hardwood")
+    alley = Alley(name="Pin Palace", location="Suburban", lane_type="Wood")
     league = League("City League", alley, "Medium Oil", 2, 3, 2)  # A short 2-week season for testing
     team1 = [Bowler("John Doe", 0.3, 0.5), Bowler("Jane Doe", 0.25, 0.6)]
     team2 = [Bowler("Alice Smith", 0.35, 0.55), Bowler("Bob Johnson", 0.28, 0.45)]
