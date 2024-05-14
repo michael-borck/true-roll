@@ -17,6 +17,7 @@ mkdocstrings = "^0.25.1"
 mypy = "^1.10.0"
 flake8 = "^7.0.0"
 mkdocstrings-python = "^1.10.0"
+pytest = "^8.2.0"
 
 [build-system]
 requires = ["poetry-core"]
