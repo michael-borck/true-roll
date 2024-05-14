@@ -14,13 +14,16 @@
 
 ::: trueroll.game.Game
 
+
 # Tournament Class
 
 ::: trueroll.tournament.Tournament
 
+
 # BowlingDatabase Class
 
 ::: trueroll.bowling_database.BowlingDatabase
+
 
 # League Class
 
