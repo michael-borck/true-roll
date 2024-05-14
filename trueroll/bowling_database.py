@@ -81,7 +81,7 @@ class BowlingDatabase:
         self.conn.commit()
         self.conn.close()
 
-    def add_bowler(self, bowler: 'Bowler') -> int:
+    def add_bowler(self, bowler: 'Bowler'):
         """
         Adds a new bowler to the database or updates an existing bowler with the same name.
 
@@ -96,11 +96,11 @@ class BowlingDatabase:
             INSERT INTO Bowlers (Name, Handedness, Style)
             VALUES (?, ?, ?) ON CONFLICT(Name) DO UPDATE SET
             Handedness=excluded.Handedness, Style=excluded.Style
-        ''', (bowler.name, bowler.handedness, bowler.style))
+        ''', (bowler.name, bowler.handedness, bowler.technique))
         self.conn.commit()
-        return c.lastrowid
+        return
 
-    def add_alley(self, alley: 'Alley') -> int:
+    def add_alley(self, alley: 'Alley'):
         """
         Adds a new bowling alley to the database.
 
@@ -114,7 +114,7 @@ class BowlingDatabase:
         c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)',
                   (alley.name, alley.location, alley.lane_type))
         self.conn.commit()
-        return c.lastrowid
+        return
 
     def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[Tuple[int, ...]]):
         """

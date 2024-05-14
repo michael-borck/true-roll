@@ -61,7 +61,7 @@ class Game:
         second_roll = np.random.randint(0, 11 - first_roll)
         return (first_roll, second_roll)
 
-    def simulate_last_frame(self, bowler: Bowler) -> Tuple[int, int, int]:
+    def simulate_last_frame(self, bowler: Bowler) -> Tuple[int, ...]:
         """
         Simulates the 10th frame, which may include up to three rolls depending on the bowler's performance.
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     # Example usage:
     bowlers = [Bowler(name="John Doe", strike_prob=0.3, spare_prob=0.5),
                Bowler(name="Jane Doe", strike_prob=0.4, spare_prob=0.6)]
-    alley = Alley(lane_type="Synthetic", oil_pattern="Medium")
+    alley = Alley("Strike Zone", "Synthetic", "Medium")
     game = Game(bowlers, alley)
     results = game.simulate_game()
     print("Game Results:")

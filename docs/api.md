@@ -20,7 +20,7 @@
 
 # BowlingDatabase Class
 
-::: trueroll.database.BowlingDatabase
+::: trueroll.bowling_database.BowlingDatabase
 
 # League Class
 

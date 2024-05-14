@@ -54,7 +54,7 @@ class Tournament:
 
 if __name__ == "__main__":
     bowlers = [Bowler("John Doe", strike_prob=0.3, spare_prob=0.5), Bowler("Jane Smith", strike_prob=0.4, spare_prob=0.4)]
-    alley = Alley("Synthetic", "Medium")
+    alley = Alley("Strike Zone", "Synthetic", "Medium")
     tournament = Tournament(bowlers, alley, num_games=5)
     tournament.run_tournament()
     print("Results:", tournament.get_results())
