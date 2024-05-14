@@ -5,6 +5,7 @@ from .bowler import Bowler
 from .alley import Alley
 from .game import Game
 from .scoring import Scoring
+from .league import League
 from .tournament import Tournament
 from .bowling_database import BowlingDatabase
 
@@ -15,5 +16,6 @@ __all__ = [
     "Game",
     "Scoring",
     "Tournament",
-    "BowlingDatabase"
+    "BowlingDatabase",
+    "League"
 ]

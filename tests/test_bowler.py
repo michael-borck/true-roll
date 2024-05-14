@@ -1,7 +1,6 @@
-# tests/test_bowler.py
-
 import pytest
-from trueroll.bowler import Bowler
+from trueroll import Bowler
+
 
 def test_bowler_creation():
     # Test creating a Bowler instance with expected attributes
@@ -12,11 +11,13 @@ def test_bowler_creation():
     assert bowler.handedness == 'right'  # Default value
     assert bowler.technique == 'single'  # Default value
 
+
 def test_bowler_string_representation():
     # Test the string representation of the Bowler
     bowler = Bowler("Jane Doe", strike_prob=0.25, spare_prob=0.6, handedness='left', technique='double')
     expected_string = "Bowler(Name: Jane Doe, Strike Probability: 0.25, Spare Probability: 0.6, Handedness: left, Technique: double)"
     assert str(bowler) == expected_string
+
 
 def test_bowler_with_invalid_probabilities():
     # Test handling of invalid probability values
@@ -25,5 +26,3 @@ def test_bowler_with_invalid_probabilities():
 
     with pytest.raises(ValueError):
         Bowler("Invalid Prob", strike_prob=-0.1, spare_prob=1.1)
-
-# Ensure pytest is configured properly to run these tests

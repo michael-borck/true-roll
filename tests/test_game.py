@@ -1,7 +1,8 @@
 import pytest
-from bowler import Bowler
-from alley import Alley
-from game import Game
+from trueroll import Bowler
+from trueroll import Alley
+from trueroll import Game
+
 
 @pytest.fixture
 def setup_bowlers_and_alley():
@@ -12,6 +13,7 @@ def setup_bowlers_and_alley():
     alley = Alley(lane_type="Synthetic", oil_pattern="Heavy")
     return bowlers, alley
 
+
 def test_simulate_regular_frame(setup_bowlers_and_alley):
     bowlers, alley = setup_bowlers_and_alley
     game = Game(bowlers, alley, random_seed=42)
@@ -20,12 +22,14 @@ def test_simulate_regular_frame(setup_bowlers_and_alley):
     assert len(frame_result) == 2  # Should always return two rolls unless a strike
     assert all(isinstance(pins, int) for pins in frame_result)
 
+
 def test_simulate_last_frame(setup_bowlers_and_alley):
     bowlers, alley = setup_bowlers_and_alley
     game = Game(bowlers, alley, random_seed=42)
     frame_result = game.simulate_last_frame(bowlers[0])
     assert isinstance(frame_result, tuple)
     assert 2 <= len(frame_result) <= 3  # Last frame can have two or three rolls
+
 
 def test_frame_by_frame_generator(setup_bowlers_and_alley):
     bowlers, alley = setup_bowlers_and_alley
@@ -37,6 +41,7 @@ def test_frame_by_frame_generator(setup_bowlers_and_alley):
         for name, result in frame.items():
             assert isinstance(result, tuple)
 
+
 def test_simulate_game(setup_bowlers_and_alley):
     bowlers, alley = setup_bowlers_and_alley
     game = Game(bowlers, alley, random_seed=42)
@@ -46,6 +51,7 @@ def test_simulate_game(setup_bowlers_and_alley):
         assert len(frames) == 10  # Each bowler should have exactly 10 frames
         for frame in frames:
             assert isinstance(frame, tuple)
+
 
 def test_randomness_consistency():
     bowlers = [Bowler(name="Test Bowler", strike_prob=0.5, spare_prob=0.3)]

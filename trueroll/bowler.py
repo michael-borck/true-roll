@@ -1,5 +1,3 @@
-# trueroll/bowler.py
-
 class Bowler:
     """
     Represents a bowler in a bowling simulation, including probabilities for striking and sparing,
@@ -40,6 +38,7 @@ class Bowler:
         return (f"Bowler(Name: {self.name}, Strike Probability: {self.strike_prob}, "
                 f"Spare Probability: {self.spare_prob}, Handedness: {self.handedness}, "
                 f"Technique: {self.technique})")
+
 
 if __name__ == "__main__":
     # Create a bowler and print the object

@@ -1,5 +1,6 @@
 import pytest
-from trueroll.scoring import Scoring
+from trueroll import Scoring
+
 
 # Define a fixture for common sets of frame data
 @pytest.fixture
@@ -11,27 +12,33 @@ def example_frames():
         "nine_pin_no_tap": [(9, 0) for _ in range(9)] + [(9, 1, 9)]
     }
 
+
 def test_traditional_scoring(example_frames):
     assert Scoring.traditional(example_frames["normal_game"]) == 149
     assert Scoring.traditional(example_frames["perfect_game"]) == 300
     assert Scoring.traditional(example_frames["no_strikes_spares"]) == 81
+
 
 def test_current_frame_scoring(example_frames):
     assert Scoring.current_frame(example_frames["normal_game"]) == 103
     assert Scoring.current_frame(example_frames["perfect_game"]) == 300
     assert Scoring.current_frame(example_frames["no_strikes_spares"]) == 81
 
+
 def test_nine_pin_no_tap(example_frames):
     # This assumes that knocking down 9 pins counts as a strike in no-tap.
     assert Scoring.nine_pin_no_tap(example_frames["nine_pin_no_tap"]) == 190  # This needs validation for rules
+
 
 def test_calculate_average_score():
     scores = [150, 200, 250]
     assert Scoring.calculate_average_score(scores) == 200
 
+
 def test_calculate_strike_percentage(example_frames):
     assert Scoring.calculate_strike_percentage(example_frames["perfect_game"]) == 100
     assert Scoring.calculate_strike_percentage(example_frames["no_strikes_spares"]) == 0
+
 
 def test_calculate_spare_percentage(example_frames):
     assert Scoring.calculate_spare_percentage(example_frames["normal_game"]) == 40

@@ -1,7 +1,8 @@
 from typing import List, Dict
-from game import Game
-from bowler import Bowler
-from alley import Alley
+from trueroll import Game
+from trueroll import Bowler
+from trueroll import Alley
+
 
 class Tournament:
     def __init__(self, bowlers: List[Bowler], alley: Alley, num_games: int = 1):
@@ -50,6 +51,7 @@ class Tournament:
         """
         average_scores = {name: sum(scores) / len(scores) if scores else 0 for name, scores in self.get_results().items()}
         return average_scores
+
 
 if __name__ == "__main__":
     bowlers = [Bowler("John Doe", strike_prob=0.3, spare_prob=0.5), Bowler("Jane Smith", strike_prob=0.4, spare_prob=0.4)]

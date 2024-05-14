@@ -1,5 +1,6 @@
 import sqlite3
-from typing import List, Tuple, Dict, Any
+from typing import List, Tuple, Any
+
 
 class BowlingDatabase:
     """
@@ -9,7 +10,7 @@ class BowlingDatabase:
 
     def __init__(self, db_name: str = 'bowling.db'):
         """
-        Initializes the database connection and creates tables if they do not already exist.
+        Initialises the database connection and creates tables if they do not already exist.
 
         Args:
             db_name (str): The filename of the database. Defaults to 'bowling.db'.
@@ -104,6 +105,7 @@ class BowlingDatabase:
         Closes the database connection.
         """
         self.conn.close()
+
 
 if __name__ == "__main__":
     # Example usage of the database class

@@ -1,7 +1,8 @@
 import pytest
 from bowling_database import BowlingDatabase
-from bowler import Bowler
-from alley import Alley
+from trueroll import Bowler
+from trueroll import Alley
+
 
 @pytest.fixture
 def db():
@@ -12,12 +13,14 @@ def db():
     import os
     os.remove('test_bowling.db')
 
+
 def test_add_bowler(db):
     """Test adding a new bowler to the database."""
     bowler = Bowler(name="John Doe", strike_prob=0.5, spare_prob=0.3, handedness="right", technique="single")
     bowler_id = db.add_bowler(bowler)
     assert bowler_id is not None
     assert isinstance(bowler_id, int)
+
 
 def test_add_alley(db):
     """Test adding a new alley to the database."""

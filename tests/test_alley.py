@@ -1,5 +1,5 @@
 import pytest
-from trueroll.alley import Alley
+from trueroll import Alley
 
 def test_alley_creation():
     # Test the creation of an Alley instance
