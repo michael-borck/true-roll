@@ -5,7 +5,7 @@ from trueroll import Bowler, Alley, Tournament
 class League:
     def __init__(self, name: str, alley: Alley, oil_pattern: str, team_size: int, num_games_per_night: int, season_length: int):
         """
-        Initializes a league with specified parameters, setting up the environment where the league games are played,
+        Initialises a league with specified parameters, setting up the environment where the league games are played,
         the type of oil pattern used, the team size, the number of games per league night, and the duration of the season.
 
         Args:
@@ -25,7 +25,7 @@ class League:
         self.team_size = team_size
         self.num_games_per_night = num_games_per_night
         self.season_length = season_length
-        self.teams: List[Team] = []
+        self.teams: List[List[Bowler]] = []
         # self.teams = []  # List of teams, each team is a list of Bowler objects
 
     def add_team(self, team: List[Bowler]):
@@ -44,7 +44,7 @@ class League:
 
     def run_season(self):
         """
-        Simulates the entire season of the league, organizing games per night for each team over the specified season length.
+        Simulates the entire season of the league, organising games per night for each team over the specified season length.
 
         Returns:
             Dict[str, List[Dict[str, float]]]: A dictionary with team names as keys and a list of their average scores per night as values.
