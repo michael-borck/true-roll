@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from trueroll import Game, Bowler, Alley
 
 
@@ -18,7 +18,8 @@ class Tournament:
         self.bowlers = bowlers
         self.alley = alley
         self.num_games = num_games
-        self.results = {bowler.name: [] for bowler in bowlers}
+        self.results: Dict[str, List[List[Tuple[int, ...]]]] = {bowler.name: [] for bowler in bowlers}
+        # self.results = {bowler.name: [] for bowler in bowlers}
 
     def run_tournament(self):
         """

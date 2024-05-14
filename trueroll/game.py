@@ -1,4 +1,4 @@
-from typing import List, Tuple, Dict, Iterator
+from typing import List, Tuple, Dict, Iterator, Optional
 import numpy as np
 from trueroll import Bowler, Alley
 
@@ -14,8 +14,7 @@ class Game:
         alley (Alley): The `Alley` object specifying the lane type and oil pattern where the game is played.
         random_seed (Optional[int]): Seed for the random number generator to ensure reproducibility, if provided.
     """
-
-    def __init__(self, bowlers: List[Bowler], alley: Alley, random_seed: int = None):
+    def __init__(self, bowlers: List[Bowler], alley: Alley, random_seed: Optional[int] = None):
         """
         Initializes a game with a list of bowlers and the alley where the game is played.
 

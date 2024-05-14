@@ -25,7 +25,8 @@ class League:
         self.team_size = team_size
         self.num_games_per_night = num_games_per_night
         self.season_length = season_length
-        self.teams = []  # List of teams, each team is a list of Bowler objects
+        self.teams: List[Team] = []
+        # self.teams = []  # List of teams, each team is a list of Bowler objects
 
     def add_team(self, team: List[Bowler]):
         """
