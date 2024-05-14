@@ -1,13 +1,37 @@
 class Alley:
-    def __init__(self, lane_type: str, oil_pattern: str):
+    """
+    Represents a bowling alley where games are played, including details about the lane conditions.
+
+    Attributes:
+        name (str): The name of the alley.
+        location (str): The geographic location of the alley.
+        lane_type (str): The type of lane surface, such as 'Wood' or 'Synthetic'.
+    """
+
+    def __init__(self, name: str, location: str, lane_type: str):
         """
-        Initialize an alley with specified lane type and oil pattern characteristics.
-        
-        :param lane_type: Type of the lane (e.g., 'synthetic', 'wood').
-        :param oil_pattern: Type of oil pattern applied to the lane (e.g., 'heavy', 'medium', 'light').
+        Initialize a new Alley instance.
+
+        Parameters:
+            name (str): The name of the alley.
+            location (str): The geographic location of the alley.
+            lane_type (str): The type of lane surface, indicating the material of the bowling lane.
         """
+        self.name = name
+        self.location = location
         self.lane_type = lane_type
-        self.oil_pattern = oil_pattern
 
     def __str__(self):
-        return f"Alley(Lane Type: {self.lane_type}, Oil Pattern: {self.oil_pattern})"
+        """
+        Return a string representation of the Alley instance, which is helpful for debugging and logging.
+
+        Returns:
+            str: A string that represents this Alley.
+        """
+        return f"{self.name} - {self.location} ({self.lane_type})"
+
+
+# Example Usage:
+if __name__ == "__main__":
+    alley = Alley("Strike Zone", "Downtown", "Synthetic")
+    print(alley)

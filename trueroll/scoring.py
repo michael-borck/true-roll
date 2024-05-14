@@ -3,6 +3,14 @@ class Scoring:
     def traditional(frames: list) -> int:
         """
         Calculate the traditional bowling score from a list of frames.
+
+        Each frame should be represented by a tuple indicating the number of pins knocked down in each roll.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on traditional bowling rules.
         """
         score = 0
         rolls = []
@@ -12,7 +20,8 @@ class Scoring:
         for i in range(10):
             frame_index = i * 2
             if rolls[frame_index] == 10:  # Strike
-                score += 10 + rolls[frame_index + 1] + rolls[frame_index + 2]
+                bonus = rolls[frame_index + 1] + rolls[frame_index + 2]
+                score += 10 + bonus
             elif rolls[frame_index] + rolls[frame_index + 1] == 10:  # Spare
                 score += 10 + rolls[frame_index + 2]
             else:
@@ -22,7 +31,13 @@ class Scoring:
     @staticmethod
     def current_frame(frames: list) -> int:
         """
-        Calculate the score using current frame scoring rules (World Bowling scoring).
+        Calculate the score using current frame scoring rules, also known as World Bowling scoring.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on current frame (World Bowling) rules.
         """
         score = 0
         for frame in frames:
@@ -37,44 +52,34 @@ class Scoring:
     @staticmethod
     def nine_pin_no_tap(frames: list) -> int:
         """
-        Calculate the score for a 9-pin no-tap game.
+        Calculate the score for a 9-pin no-tap game, where knocking down 9 pins counts as a strike.
+
+        Parameters:
+            frames (list): A list of tuples representing the game frames.
+
+        Returns:
+            int: The total score calculated based on 9-pin no-tap rules.
         """
         score = 0
         for i, frame in enumerate(frames):
             first_roll = frame[0]
             if first_roll == 9 or first_roll == 10:
-                if i < 9:  # not the last frame
+                if i < 9:  # Not the last frame
                     next_frame = frames[i + 1]
                     score += 10 + next_frame[0] + (next_frame[1] if len(next_frame) > 1 else 0)
                 else:  # Last frame
                     score += 10 + frame[1] + frame[2]
             elif sum(frame[:2]) == 10:  # Spare
-                score += 10 + frames[i + 1][0] if i < 9 else 10 + frame[2]
+                score += 10 + (frames[i + 1][0] if i < 9 else frame[2])
             else:
                 score += sum(frame)
         return score
 
-    @staticmethod
-    def calculate_average_score(scores: list) -> float:
-        """
-        Calculate the average score from a list of scores.
-        """
-        if scores:
-            return sum(scores) / len(scores)
-        return 0
-
-    @staticmethod
-    def calculate_strike_percentage(frames: list) -> float:
-        """
-        Calculate the percentage of frames that resulted in strikes.
-        """
-        strikes = sum(1 for frame in frames if frame[0] == 10)
-        return (strikes / len(frames)) * 100 if frames else 0
-
-    @staticmethod
-    def calculate_spare_percentage(frames: list) -> float:
-        """
-        Calculate the percentage of frames that resulted in spares.
-        """
-        spares = sum(1 for frame in frames if sum(frame[:2]) == 10 and frame[0] != 10)
-        return (spares / len(frames)) * 100 if frames else 0
+if __name__ == "__main__":
+    frames = [(10, 0), (10, 0), (10, 0), (10, 0), (10, 0), (9, 1), (10, 0), (9, 1), (10, 0), (9, 1, 8)]
+    traditional_score = Scoring.traditional(frames)
+    current_frame_score = Scoring.current_frame(frames)
+    nine_pin_no_tap_score = Scoring.nine_pin_no_tap(frames)
+    print(f"Traditional Score: {traditional_score}")
+    print(f"Current Frame Score: {current_frame_score}")
+    print(f"Nine Pin No Tap Score: {nine_pin_no_tap_score}")

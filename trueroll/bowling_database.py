@@ -1,34 +1,40 @@
 import sqlite3
-from typing import List, Dict, Any
+from typing import List, Tuple, Dict, Any
 
 class BowlingDatabase:
-    """Handles the storage and retrieval of bowling simulation data in an SQLite database.
-
-    This class provides methods to add and manage bowlers, alleys, games, and detailed game statistics.
+    """
+    Handles the storage and retrieval of bowling simulation data in an SQLite database.
+    Provides methods to add and manage bowlers, alleys, games, and detailed game statistics.
     """
 
     def __init__(self, db_name: str = 'bowling.db'):
         """
         Initializes the database connection and creates tables if they do not already exist.
 
-        :param db_name: The filename of the database. Defaults to 'bowling.db'.
+        Args:
+            db_name (str): The filename of the database. Defaults to 'bowling.db'.
         """
         self.db_name = db_name
         self.conn = sqlite3.connect(self.db_name)
         self.create_tables()
 
     def create_tables(self):
-        """Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details."""
+        """
+        Creates tables in the database if they do not exist to store bowlers, alleys, games, and game details.
+        """
         c = self.conn.cursor()
-        # Create tables for bowlers, alleys, oil patterns, games, and game details
+        # Example table creation SQL. Please modify as per actual schema requirements.
         # ...
 
     def add_bowler(self, bowler: 'Bowler') -> int:
         """
         Adds a new bowler to the database or updates an existing bowler with the same name.
 
-        :param bowler: An instance of the Bowler class containing bowler data.
-        :return: The database ID of the added or updated bowler.
+        Args:
+            bowler (Bowler): An instance of the Bowler class containing bowler data.
+
+        Returns:
+            int: The database ID of the added or updated bowler.
         """
         c = self.conn.cursor()
         c.execute('''
@@ -43,23 +49,27 @@ class BowlingDatabase:
         """
         Adds a new bowling alley to the database.
 
-        :param alley: An instance of the Alley class containing alley data.
-        :return: The database ID of the added alley.
+        Args:
+            alley (Alley): An instance of the Alley class containing alley data.
+
+        Returns:
+            int: The database ID of the added alley.
         """
         c = self.conn.cursor()
-        c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)', 
+        c.execute('INSERT INTO Alleys (Name, Location, LaneType) VALUES (?, ?, ?)',
                   (alley.name, alley.location, alley.lane_type))
         self.conn.commit()
         return c.lastrowid
 
-    def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[tuple]):
+    def add_game(self, date: str, alley_id: int, oil_pattern_id: int, frames: List[Tuple[int, ...]]):
         """
         Adds a new game along with detailed frame data to the database.
 
-        :param date: The date the game was played.
-        :param alley_id: The database ID of the alley where the game was played.
-        :param oil_pattern_id: The database ID of the oil pattern used in the game.
-        :param frames: A list of tuples representing the frames played in the game.
+        Args:
+            date (str): The date the game was played.
+            alley_id (int): The database ID of the alley where the game was played.
+            oil_pattern_id (int): The database ID of the oil pattern used in the game.
+            frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
         """
         c = self.conn.cursor()
         c.execute('INSERT INTO Games (Date, AlleyID, OilPatternID) VALUES (?, ?, ?)', (date, alley_id, oil_pattern_id))
@@ -71,12 +81,15 @@ class BowlingDatabase:
         ''', (game_id, str(frames), total_score, strike_percentage, spare_percentage))
         self.conn.commit()
 
-    def calculate_stats(self, frames: List[tuple]) -> (int, float, float):
+    def calculate_stats(self, frames: List[Tuple[int, ...]]) -> Tuple[int, float, float]:
         """
         Calculate total score, strike, and spare percentages from frame data.
 
-        :param frames: A list of tuples representing the frames played in the game.
-        :return: A tuple containing the total score, strike percentage, and spare percentage.
+        Args:
+            frames (List[Tuple[int, ...]]): A list of tuples representing the frames played in the game.
+
+        Returns:
+            Tuple[int, float, float]: A tuple containing the total score, strike percentage, and spare percentage.
         """
         total_score = 0  # Implement scoring calculation based on rules
         strikes = sum(1 for frame in frames if frame[0] == 10)
@@ -87,5 +100,15 @@ class BowlingDatabase:
         return total_score, strike_percentage, spare_percentage
 
     def close(self):
-        """Closes the database connection."""
+        """
+        Closes the database connection.
+        """
         self.conn.close()
+
+if __name__ == "__main__":
+    # Example usage of the database class
+    db = BowlingDatabase()
+    # Here you might instantiate Bowler and Alley classes and add them using db.add_bowler() and db.add_alley()
+    # This part would typically be extended to use actual data or more complex scenarios.
+    print("Database setup complete.")
+    db.close()

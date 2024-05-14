@@ -1,25 +1,44 @@
 from typing import List, Tuple, Dict, Iterator
+import numpy as np
 from bowler import Bowler
 from alley import Alley
 
 class Game:
-    def __init__(self, bowlers: List[Bowler], alley: Alley):
+    """
+    Manages the simulation of a bowling game, providing detailed frame-by-frame results for each bowler.
+
+    This class supports simulations on specified alleys with distinct characteristics, influencing the gameplay of the bowlers.
+
+    Attributes:
+        bowlers (List[Bowler]): A list of `Bowler` objects participating in the game.
+        alley (Alley): The `Alley` object specifying the lane type and oil pattern where the game is played.
+        random_seed (Optional[int]): Seed for the random number generator to ensure reproducibility, if provided.
+    """
+
+    def __init__(self, bowlers: List[Bowler], alley: Alley, random_seed: int = None):
         """
-        Initialize a game with a list of bowlers and the alley where the game is played.
+        Initializes a game with a list of bowlers and the alley where the game is played.
         
-        :param bowlers: List of Bowler objects participating in the game.
-        :param alley: The Alley object specifying the lane type and oil pattern.
+        Parameters:
+            bowlers (List[Bowler]): List of Bowler objects participating in the game.
+            alley (Alley): The Alley object specifying the lane type and oil pattern.
+            random_seed (int, optional): Random seed for reproducibility of the simulation.
         """
         self.bowlers = bowlers
         self.alley = alley
+        if random_seed is not None:
+            np.random.seed(random_seed)
 
     def simulate_frame(self, bowler: Bowler, frame_number: int) -> Tuple[int, ...]:
         """
-        Simulate a single frame for a given bowler based on the frame number.
+        Simulates a single frame for a given bowler based on the frame number.
         
-        :param bowler: The Bowler object for whom the frame is simulated.
-        :param frame_number: The frame number (0-indexed, 0-9).
-        :return: A tuple representing the result of the frame (pins knocked down in each roll).
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the frame is simulated.
+            frame_number (int): The frame number (0-indexed, 0-9).
+        
+        Returns:
+            Tuple[int, ...]: A tuple representing the result of the frame (pins knocked down in each roll).
         """
         if frame_number < 9:
             return self.simulate_regular_frame(bowler)
@@ -28,29 +47,47 @@ class Game:
 
     def simulate_regular_frame(self, bowler: Bowler) -> Tuple[int, int]:
         """
-        Simulate a regular frame (not the last one), accounting for strikes and open frames.
+        Simulates a regular frame (not the last one), accounting for strikes and open frames.
         
-        :param bowler: The Bowler object for whom the frame is simulated.
-        :return: A tuple of two integers representing the pins knocked down in each roll.
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the frame is simulated.
+        
+        Returns:
+            Tuple[int, int]: A tuple of two integers representing the pins knocked down in each roll.
         """
-        # Example simulation logic, replace with actual simulation logic.
-        return (10, 0) if np.random.rand() < bowler.strike_prob else (5, 4)  # Example data.
+        strike = np.random.rand() < bowler.strike_prob
+        if strike:
+            return (10, 0)
+        first_roll = np.random.randint(0, 11)
+        second_roll = np.random.randint(0, 11 - first_roll)
+        return (first_roll, second_roll)
 
     def simulate_last_frame(self, bowler: Bowler) -> Tuple[int, int, int]:
         """
-        Simulate the 10th frame, which may include up to three rolls depending on the bowler's performance.
+        Simulates the 10th frame, which may include up to three rolls depending on the bowler's performance.
         
-        :param bowler: The Bowler object for whom the last frame is simulated.
-        :return: A tuple of up to three integers representing the pins knocked down in each roll.
+        Parameters:
+            bowler (Bowler): The Bowler object for whom the last frame is simulated.
+        
+        Returns:
+            Tuple[int, int, int]: A tuple of up to three integers representing the pins knocked down in each roll.
         """
-        # Example simulation logic for the last frame.
-        return (10, 10, 10)  # Example data.
+        rolls = []
+        for _ in range(2):  # simulate first two rolls in the 10th frame
+            roll = np.random.randint(0, 11)
+            rolls.append(roll)
+            if sum(rolls) < 10:
+                break
+        if sum(rolls) >= 10:  # bonus roll if strike or spare
+            rolls.append(np.random.randint(0, 11))
+        return tuple(rolls)
 
     def frame_by_frame_generator(self) -> Iterator[Dict[str, Tuple[int, ...]]]:
         """
         A generator to simulate the game frame-by-frame, yielding results for each frame for all bowlers.
         
-        :return: An iterator that yields a dictionary representing the frame results of each bowler.
+        Yields:
+            Iterator[Dict[str, Tuple[int, ...]]]: An iterator that yields a dictionary representing the frame results of each bowler.
         """
         for frame_number in range(10):
             frame_results = {}
@@ -60,12 +97,24 @@ class Game:
 
     def simulate_game(self) -> Dict[str, List[Tuple[int, ...]]]:
         """
-        Simulate a complete game for all bowlers, returning the frame-by-frame results.
+        Simulates a complete game for all bowlers, returning the frame-by-frame results.
         
-        :return: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.
+        Returns:
+            Dict[str, List[Tuple[int, ...]]]: A dictionary where keys are bowler names and values are lists of tuples, each tuple representing a frame.
         """
         results = {bowler.name: [] for bowler in self.bowlers}
         for frame_results in self.frame_by_frame_generator():
             for name, frame in frame_results.items():
                 results[name].append(frame)
         return results
+
+if __name__ == "__main__":
+    # Example usage:
+    bowlers = [Bowler(name="John Doe", strike_prob=0.3, spare_prob=0.5),
+               Bowler(name="Jane Doe", strike_prob=0.4, spare_prob=0.6)]
+    alley = Alley(lane_type="Synthetic", oil_pattern="Medium")
+    game = Game(bowlers, alley)
+    results = game.simulate_game()
+    print("Game Results:")
+    for bowler, frames in results.items():
+        print(f"{bowler}: {frames}")
