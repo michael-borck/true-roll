@@ -71,13 +71,13 @@ class Game:
             Tuple[int, int, int]: A tuple of up to three integers representing the pins knocked down in each roll.
         """
         rolls = []
-        
+
         # Simulate the first roll
         if np.random.rand() < bowler.strike_prob:
             rolls.append(10)
         else:
             rolls.append(np.random.randint(0, 11))
-        
+
         # Simulate the second roll
         if rolls[0] == 10:  # First roll was a strike
             if np.random.rand() < bowler.strike_prob:
@@ -87,14 +87,14 @@ class Game:
         else:
             second_roll = np.random.randint(0, 11 - rolls[0])
             rolls.append(second_roll)
-        
+
         # Simulate the third roll if needed
         if sum(rolls[:2]) >= 10:  # Strike or spare in first two rolls
             if np.random.rand() < bowler.strike_prob:
                 rolls.append(10)
             else:
                 rolls.append(np.random.randint(0, 11))
-        
+
         return tuple(rolls[:3])  # Ensure only up to three rolls are returned
 
     def frame_by_frame_generator(self) -> Iterator[Dict[str, Tuple[int, ...]]]:

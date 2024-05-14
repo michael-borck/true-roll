@@ -18,7 +18,7 @@ class Alley:
             name (str): The name of the alley.
             location (str): The geographic location of the alley.
             lane_type (str): The type of lane surface, indicating the material of the bowling lane.
-        
+
         Raises:
             ValueError: If lane_type is not 'Wood' or 'Synthetic'.
         """
@@ -37,7 +37,7 @@ class Alley:
         """
         return f"{self.name} - {self.location} ({self.lane_type})"
 
-# Example Usage:
+
 if __name__ == "__main__":
     alley = Alley("Strike Zone", "Downtown", "Synthetic")
     print(alley)
