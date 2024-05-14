@@ -1,5 +1,5 @@
 from typing import List
-from trueroll import Bowler. Alley, Tournament
+from trueroll import Bowler, Alley, Tournament
 
 
 class League:

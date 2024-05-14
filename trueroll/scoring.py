@@ -75,6 +75,7 @@ class Scoring:
                 score += sum(frame)
         return score
 
+
 if __name__ == "__main__":
     frames = [(10, 0), (10, 0), (10, 0), (10, 0), (10, 0), (9, 1), (10, 0), (9, 1), (10, 0), (9, 1, 8)]
     traditional_score = Scoring.traditional(frames)
