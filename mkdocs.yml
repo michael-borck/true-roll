@@ -2,11 +2,22 @@ site_name: TrueRoll Documentation
 
 theme:
   name: readthedocs
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.highlight
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
-
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - admonition
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -15,8 +26,13 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Interfaces:
+    - Overview: interfaces.md
+    - CLI: cli.md
+    - TUI: tui.md
+    - Web: web.md
   - API Documentation: api.md
-  - Contribute: contribute.md
+  - Contributing: contribute.md
   - Contact: contact.md
 
 plugins:
