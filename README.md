@@ -24,12 +24,17 @@ pip install trueroll
 
 ### From source
 
-Clone the repository and install using pip:
+Clone the repository and install using pip or uv:
 
 ```bash
 git clone https://github.com/michael-borck/trueroll.git
 cd trueroll
+
+# Using pip
 pip install -e .
+
+# Or using uv (recommended)
+uv pip install -e .
 ```
 
 ## Usage
@@ -114,18 +119,46 @@ Generate and view the documentation locally:
 
 ```bash
 # Install development dependencies
+uv pip install "trueroll[dev]"
+# or using pip
 pip install "trueroll[dev]"
 
 # Serve the documentation
 mkdocs serve
 ```
 
-## Testing
+## Development Setup
+
+For a quick development setup with uv, run:
+
+```bash
+./setup_uv.sh
+```
+
+This will:
+1. Install uv if needed
+2. Create a virtual environment
+3. Install all dependencies
+4. Show usage instructions
+
+## Testing, Linting and Type Checking
 
 Run tests using pytest:
 
 ```bash
 pytest
+```
+
+Run linting with ruff:
+
+```bash
+ruff check src tests
+```
+
+Run type checking with mypy:
+
+```bash
+mypy src tests
 ```
 
 ## Contributing

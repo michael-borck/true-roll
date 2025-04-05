@@ -1,17 +1,17 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "trueroll"
-version = "0.2.0"
-description = "A ten-pin bowling simulation library designed to model games, analyse player performance, and explore the effects of different bowling conditions."
+version = "0.2.1"
+description = "A ten-pin bowling simulation library for modeling games"
 authors = [
-    {name = "Michael Borck", email = "michael@borck.me"},
+    {name = "Michael Borck", email = "michael@borck.me"}
 ]
-license = {text = "MIT"}
-readme = "README.md"
 requires-python = ">=3.10"
+readme = "README.md"
+license = {file = "LICENSE"}
 dependencies = [
     "numpy>=1.26.4",
     "typer>=0.9.0",
@@ -20,30 +20,42 @@ dependencies = [
     "python-fasthtml>=0.8.2",
 ]
 
-[project.urls]
-"Documentation" = "https://michaelborck.au/trueroll/"
-"Repository" = "https://github.com/michael-borck/trueroll"
-
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.2.0",
-    "ruff>=0.3.0",
-    "mkdocs>=1.6.0",
-    "mkdocstrings>=0.25.1",
-    "mkdocstrings-python>=1.10.0",
+    "ruff>=0.1.5",
+    "mypy>=1.7.0",
+    "pytest>=7.4.0",
+    "mkdocs>=1.5.0",
+    "mkdocstrings>=0.23.0",
+    "mkdocstrings-python>=1.7.0",
+    "pymdown-extensions>=10.3.0",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/michael-borck/trueroll"
+"Bug Tracker" = "https://github.com/michael-borck/trueroll/issues"
 
 [project.scripts]
 trueroll = "trueroll.cli.commands:app"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/trueroll"]
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
-line-length = 88
+# Migrated from .flake8
+line-length = 120
 target-version = "py310"
 select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "ERA"]
-ignore = []
+ignore = ["E501"]  # Line too long
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+]
 
 [tool.ruff.isort]
 known-first-party = ["trueroll"]
@@ -57,3 +69,18 @@ ban-relative-imports = "all"
 [tool.pytest]
 testpaths = ["tests"]
 python_files = "test_*.py"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+strict_optional = true
+
+[[tool.mypy.overrides]]
+module = ["numpy.*"]
+ignore_missing_imports = true

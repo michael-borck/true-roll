@@ -1,7 +1,7 @@
 """TrueRoll - A ten-pin bowling simulation library."""
 
 # Version information
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # Import classes to expose them at the package level
 from .bowler import Bowler
