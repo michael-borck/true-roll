@@ -1,5 +1,5 @@
 import pytest
-from trueroll import Bowler, Alley, League
+from virtual_lanes import Bowler, Alley, League
 
 
 def test_league_initialisation():

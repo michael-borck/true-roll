@@ -1,8 +1,8 @@
-"""TrueRoll Web Interface using FastHTML."""
+"""VirtualLanes Web Interface using FastHTML."""
 
 from fasthtml.common import *
 import numpy as np
-from trueroll import (
+from virtual_lanes import (
     alley, bowler, game, league, tournament, scoring
 )
 
@@ -12,9 +12,9 @@ def create_app(debug=False):
     
     @rt("/")
     def get():
-        return Titled("TrueRoll", 
+        return Titled("VirtualLanes", 
             Div(
-                H1("Welcome to TrueRoll"),
+                H1("Welcome to VirtualLanes"),
                 P("A ten-pin bowling simulation library designed to model games, analyze player performance, and explore the effects of different bowling conditions."),
                 Grid(
                     Card(

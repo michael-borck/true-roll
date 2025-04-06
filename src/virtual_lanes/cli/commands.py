@@ -1,16 +1,16 @@
-"""TrueRoll CLI commands."""
+"""VirtualLanes CLI commands."""
 
 import typer
 from typing import Optional, List
-import trueroll
-from trueroll.tui import app as tui_app
-from trueroll.web import app as web_app
+import virtual_lanes
+from virtual_lanes.tui import app as tui_app
+from virtual_lanes.web import app as web_app
 import rich
 from rich.console import Console
 from rich.table import Table
 
 console = Console()
-app = typer.Typer(help="TrueRoll bowling management and simulation.")
+app = typer.Typer(help="VirtualLanes bowling management and simulation.")
 bowlers_app = typer.Typer(help="Manage bowlers.")
 games_app = typer.Typer(help="Manage games.")
 leagues_app = typer.Typer(help="Manage leagues.")

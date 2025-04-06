@@ -1,5 +1,7 @@
 from typing import List, Dict, Tuple
-from trueroll import Game, Bowler, Alley
+from .game import Game
+from .bowler import Bowler
+from .alley import Alley
 
 
 class Tournament:

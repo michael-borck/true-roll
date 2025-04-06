@@ -9,20 +9,20 @@ You can start the TUI in several ways:
 ### Via Command Line
 
 ```bash
-trueroll tui start
+true-roll tui start
 ```
 
 ### Via Python API
 
 ```python
-import trueroll
-trueroll.run_tui()
+import true_roll
+true_roll.run_tui()
 ```
 
 ### Direct Module Execution
 
 ```bash
-python -m trueroll.tui.app
+python -m true_roll.tui.app
 ```
 
 ## Interface Overview

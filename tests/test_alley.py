@@ -1,5 +1,5 @@
 import pytest
-from trueroll import Alley
+from virtual_lanes import Alley
 
 
 def test_alley_creation():

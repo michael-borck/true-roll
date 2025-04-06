@@ -1,5 +1,5 @@
 import pytest
-from trueroll import Scoring
+from virtual_lanes import Scoring
 
 
 # Define a fixture for common sets of frame data

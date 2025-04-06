@@ -1,6 +1,7 @@
 from typing import List, Tuple, Dict, Iterator, Optional
 import numpy as np
-from trueroll import Bowler, Alley
+from .bowler import Bowler
+from .alley import Alley
 
 
 class Game:

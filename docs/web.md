@@ -9,32 +9,32 @@ You can start the web interface in several ways:
 ### Via Command Line
 
 ```bash
-trueroll web start
+true-roll web start
 ```
 
 With custom host and port:
 
 ```bash
-trueroll web start --host 0.0.0.0 --port 8080
+true-roll web start --host 0.0.0.0 --port 8080
 ```
 
 Enable debug mode:
 
 ```bash
-trueroll web start --debug
+true-roll web start --debug
 ```
 
 ### Via Python API
 
 ```python
-import trueroll
-trueroll.run_web(host="127.0.0.1", port=8000, debug=False)
+import true_roll
+true_roll.run_web(host="127.0.0.1", port=8000, debug=False)
 ```
 
 ### Direct Module Execution
 
 ```bash
-python -m trueroll.web.app
+python -m true_roll.web.app
 ```
 
 ## Accessing the Web Interface
@@ -126,7 +126,7 @@ The interface uses the lightweight PicoCSS framework for clean, semantic styling
 You can extend the web interface by adding custom routes to the FastHTML application:
 
 ```python
-from trueroll.web.app import create_app
+from true_roll.web.app import create_app
 
 app = create_app()
 
@@ -199,7 +199,7 @@ The web interface is designed for local network use. If you're exposing it to th
    On Linux/macOS, ports below 1024 require elevated privileges:
    
    ```bash
-   sudo trueroll web start --port 80
+   sudo true-roll web start --port 80
    ```
 
 3. **Address already in use**
@@ -207,5 +207,5 @@ The web interface is designed for local network use. If you're exposing it to th
    You may already have a TrueRoll web server running. Check with:
    
    ```bash
-   ps aux | grep trueroll
+   ps aux | grep true-roll
    ```

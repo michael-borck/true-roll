@@ -1,6 +1,6 @@
-# TrueRoll: Ten-Pin Bowling Simulation
+# VirtualLanes: Ten-Pin Bowling Simulation
 
-TrueRoll is an extensive simulation toolkit designed for modeling ten-pin bowling games. It offers a comprehensive suite of classes that simulate games, tournaments, leagues, and more, providing a realistic and detailed representation of bowling dynamics. The project also includes a scoring system compatible with various bowling rules, a database for persisting game results, and multiple interfaces (CLI, TUI, Web) for interacting with the library.
+VirtualLanes is an extensive simulation toolkit designed for modeling ten-pin bowling games. It offers a comprehensive suite of classes that simulate games, tournaments, leagues, and more, providing a realistic and detailed representation of bowling dynamics. The project also includes a scoring system compatible with various bowling rules, a database for persisting game results, and multiple interfaces (CLI, TUI, Web) for interacting with the library.
 
 ## Features
 
@@ -19,7 +19,7 @@ TrueRoll is an extensive simulation toolkit designed for modeling ten-pin bowlin
 ### Using pip
 
 ```bash
-pip install trueroll
+pip install virtual-lanes
 ```
 
 ### From source
@@ -27,8 +27,8 @@ pip install trueroll
 Clone the repository and install using pip or uv:
 
 ```bash
-git clone https://github.com/michael-borck/trueroll.git
-cd trueroll
+git clone https://github.com/michael-borck/virtual-lanes.git
+cd virtual-lanes
 
 # Using pip
 pip install -e .
@@ -42,7 +42,7 @@ uv pip install -e .
 ### As a Python Library
 
 ```python
-from trueroll import Bowler, Game, Scoring
+from virtual_lanes import Bowler, Game, Scoring
 
 # Create a bowler
 player = Bowler("John Doe", 180)
@@ -60,25 +60,25 @@ print(f"{player.name}'s score: {score}")
 
 ### Command Line Interface (CLI)
 
-TrueRoll provides a command-line interface with various subcommands:
+VirtualLanes provides a command-line interface with various subcommands:
 
 ```bash
 # Show CLI help
-trueroll --help
+virtual-lanes --help
 
 # Manage bowlers
-trueroll bowlers list
-trueroll bowlers add "John Doe" 180
+virtual-lanes bowlers list
+virtual-lanes bowlers add "John Doe" 180
 
 # Manage games
-trueroll games list
-trueroll games add "John Doe" 210
+virtual-lanes games list
+virtual-lanes games add "John Doe" 210
 
 # Start the Terminal UI
-trueroll tui start
+virtual-lanes tui start
 
 # Start the Web Interface
-trueroll web start
+virtual-lanes web start
 ```
 
 ### Terminal User Interface (TUI)
@@ -86,14 +86,14 @@ trueroll web start
 Start the interactive terminal interface:
 
 ```bash
-trueroll tui start
+virtual-lanes tui start
 ```
 
 Or from Python:
 
 ```python
-import trueroll
-trueroll.run_tui()
+import virtual_lanes
+virtual_lanes.run_tui()
 ```
 
 ### Web Interface
@@ -101,14 +101,14 @@ trueroll.run_tui()
 Start the web server:
 
 ```bash
-trueroll web start --host 0.0.0.0 --port 8080
+virtual-lanes web start --host 0.0.0.0 --port 8080
 ```
 
 Or from Python:
 
 ```python
-import trueroll
-trueroll.run_web(host="0.0.0.0", port=8080, debug=True)
+import virtual_lanes
+virtual_lanes.run_web(host="0.0.0.0", port=8080, debug=True)
 ```
 
 Then open your browser at `http://localhost:8080`.
@@ -119,9 +119,9 @@ Generate and view the documentation locally:
 
 ```bash
 # Install development dependencies
-uv pip install "trueroll[dev]"
+uv pip install "virtual-lanes[dev]"
 # or using pip
-pip install "trueroll[dev]"
+pip install "virtual-lanes[dev]"
 
 # Serve the documentation
 mkdocs serve

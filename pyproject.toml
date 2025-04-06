@@ -3,40 +3,25 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "trueroll"
-version = "0.2.1"
+name = "virtual-lanes"
+version = "0.2.2"
 description = "A ten-pin bowling simulation library for modeling games"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
 authors = [
     {name = "Michael Borck", email = "michael@borck.me"}
 ]
-requires-python = ">=3.10"
-readme = "README.md"
-license = {file = "LICENSE"}
 dependencies = [
     "numpy>=1.26.4",
     "typer>=0.9.0",
     "rich>=13.7.0",
-    "textual>=0.52.1",
+    "textual>=0.52.1", 
     "python-fasthtml>=0.8.2",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "ruff>=0.1.5",
-    "mypy>=1.7.0",
-    "pytest>=7.4.0",
-    "mkdocs>=1.5.0",
-    "mkdocstrings>=0.23.0",
-    "mkdocstrings-python>=1.7.0",
-    "pymdown-extensions>=10.3.0",
-]
-
-[project.urls]
-"Homepage" = "https://github.com/michael-borck/trueroll"
-"Bug Tracker" = "https://github.com/michael-borck/trueroll/issues"
-
 [project.scripts]
-trueroll = "trueroll.cli.commands:app"
+virtual-lanes = "virtual_lanes.cli.commands:app"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -58,7 +43,7 @@ exclude = [
 ]
 
 [tool.ruff.isort]
-known-first-party = ["trueroll"]
+known-first-party = ["virtual_lanes"]
 
 [tool.ruff.flake8-tidy-imports]
 ban-relative-imports = "all"

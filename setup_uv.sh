@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Explain what this script does
-echo "TrueRoll Development Environment Setup"
+echo "True-Roll Development Environment Setup"
 echo "====================================="
 echo "This script will set up a development environment using uv and install all dependencies."
 echo "The project uses pyproject.toml for all configuration (no setup.py needed)."

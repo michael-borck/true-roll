@@ -1,5 +1,5 @@
 import pytest
-from trueroll import Bowler, Alley, Tournament
+from virtual_lanes import Bowler, Alley, Tournament
 
 
 @pytest.fixture

@@ -1,5 +1,5 @@
 import pytest
-from trueroll import Bowler
+from virtual_lanes import Bowler
 
 
 def test_bowler_creation():

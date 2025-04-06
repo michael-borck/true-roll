@@ -1,6 +1,6 @@
 import pytest
-from trueroll import BowlingDatabase
-from trueroll import Bowler, Alley
+from virtual_lanes import BowlingDatabase
+from virtual_lanes import Bowler, Alley
 
 @pytest.fixture
 def db():

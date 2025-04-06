@@ -28,14 +28,14 @@ TrueRoll includes several key features:
 Install TrueRoll using pip:
 
 ```bash
-pip install trueroll
+pip install true-roll
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/michael-borck/trueroll.git
-cd trueroll
+git clone https://github.com/michael-borck/true-roll.git
+cd true-roll
 pip install -e .
 ```
 
@@ -44,7 +44,7 @@ pip install -e .
 Using TrueRoll as a Python library:
 
 ```python
-from trueroll import Bowler, Game, Scoring
+from true_roll import Bowler, Game, Scoring
 
 # Create a bowler
 player = Bowler("John Doe", 180)
@@ -64,13 +64,13 @@ Using the CLI:
 
 ```bash
 # Show CLI help
-trueroll --help
+true-roll --help
 
 # List bowlers
-trueroll bowlers list
+true-roll bowlers list
 
 # Start the web interface
-trueroll web start
+true-roll web start
 ```
 
 ## Interfaces
@@ -78,7 +78,7 @@ trueroll web start
 TrueRoll provides multiple ways to interact with the library:
 
 - **[Python Library](api.md)**: Import and use TrueRoll as a Python module
-- **[Command Line Interface](cli.md)**: Use the `trueroll` command in your terminal
+- **[Command Line Interface](cli.md)**: Use the `true-roll` command in your terminal
 - **[Terminal User Interface](tui.md)**: Interactive terminal-based dashboard
 - **[Web Interface](web.md)**: Browser-based graphical interface
 

@@ -1,9 +1,9 @@
-"""TrueRoll Terminal User Interface using Textual."""
+"""VirtualLanes Terminal User Interface using Textual."""
 
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer, Static, Button, DataTable
 from textual.containers import Container
-import trueroll
+import virtual_lanes
 
 class BowlerList(Static):
     """A list of bowlers."""

@@ -1,6 +1,7 @@
 import sqlite3
 from typing import List, Tuple
-from trueroll import Bowler, Alley
+from .bowler import Bowler
+from .alley import Alley
 
 
 class BowlingDatabase:

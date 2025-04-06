@@ -7,7 +7,7 @@ TrueRoll provides a comprehensive command-line interface (CLI) built with Typer,
 The CLI is automatically installed when you install TrueRoll:
 
 ```bash
-pip install trueroll
+pip install true-roll
 ```
 
 ## Command Structure
@@ -15,7 +15,7 @@ pip install trueroll
 TrueRoll's CLI follows a subcommand structure:
 
 ```
-trueroll [command] [subcommand] [options] [arguments]
+true-roll [command] [subcommand] [options] [arguments]
 ```
 
 Main commands include:
@@ -31,7 +31,7 @@ Main commands include:
 To see all available commands:
 
 ```bash
-trueroll --help
+true-roll --help
 ```
 
 ## Bowler Management
@@ -39,7 +39,7 @@ trueroll --help
 ### List bowlers
 
 ```bash
-trueroll bowlers list
+true-roll bowlers list
 ```
 
 Example output:
@@ -56,13 +56,13 @@ Example output:
 ### Add a bowler
 
 ```bash
-trueroll bowlers add "John Doe" 180
+true-roll bowlers add "John Doe" 180
 ```
 
 ### Get help on bowler commands
 
 ```bash
-trueroll bowlers --help
+true-roll bowlers --help
 ```
 
 ## Game Management
@@ -70,7 +70,7 @@ trueroll bowlers --help
 ### List games
 
 ```bash
-trueroll games list
+true-roll games list
 ```
 
 Example output:
@@ -87,13 +87,13 @@ Example output:
 ### Add a game
 
 ```bash
-trueroll games add "John Doe" 210
+true-roll games add "John Doe" 210
 ```
 
 ### Get help on game commands
 
 ```bash
-trueroll games --help
+true-roll games --help
 ```
 
 ## League Management
@@ -101,7 +101,7 @@ trueroll games --help
 ### List leagues
 
 ```bash
-trueroll leagues list
+true-roll leagues list
 ```
 
 Example output:
@@ -117,13 +117,13 @@ Example output:
 ### Add a league
 
 ```bash
-trueroll leagues add "Monday Night League"
+true-roll leagues add "Monday Night League"
 ```
 
 ### Get help on league commands
 
 ```bash
-trueroll leagues --help
+true-roll leagues --help
 ```
 
 ## TUI Interface
@@ -131,7 +131,7 @@ trueroll leagues --help
 Start the Terminal User Interface:
 
 ```bash
-trueroll tui start
+true-roll tui start
 ```
 
 ## Web Interface
@@ -139,19 +139,19 @@ trueroll tui start
 Start the Web Interface:
 
 ```bash
-trueroll web start
+true-roll web start
 ```
 
 With custom host and port:
 
 ```bash
-trueroll web start --host 0.0.0.0 --port 8080
+true-roll web start --host 0.0.0.0 --port 8080
 ```
 
 Enable debug mode:
 
 ```bash
-trueroll web start --debug
+true-roll web start --debug
 ```
 
 ## Python API Access
@@ -159,24 +159,24 @@ trueroll web start --debug
 You can also access the CLI programmatically from Python:
 
 ```python
-import trueroll
-trueroll.run_cli()
+import true_roll
+true_roll.run_cli()
 ```
 
-This is equivalent to running the `trueroll` command in the terminal.
+This is equivalent to running the `true-roll` command in the terminal.
 
 ## Advanced Usage
 
 ### Environment Variables
 
-TrueRoll CLI also respects environment variables. Any option can be set using an environment variable with the prefix `TRUEROLL_` followed by the option name in uppercase.
+TrueRoll CLI also respects environment variables. Any option can be set using an environment variable with the prefix `TRUE_ROLL_` followed by the option name in uppercase.
 
 For example:
-- `--host` can be set with `TRUEROLL_HOST`
-- `--port` can be set with `TRUEROLL_PORT`
+- `--host` can be set with `TRUE_ROLL_HOST`
+- `--port` can be set with `TRUE_ROLL_PORT`
 
 ```bash
-export TRUEROLL_HOST=0.0.0.0
-export TRUEROLL_PORT=8080
-trueroll web start
+export TRUE_ROLL_HOST=0.0.0.0
+export TRUE_ROLL_PORT=8080
+true-roll web start
 ```

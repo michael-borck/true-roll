@@ -7,7 +7,7 @@ TrueRoll provides multiple interfaces to interact with the bowling simulation li
 TrueRoll offers four distinct ways to interact with the library:
 
 1. **Python Library** - Import and use TrueRoll as a Python module
-2. **Command Line Interface (CLI)** - Use the `trueroll` command in your terminal
+2. **Command Line Interface (CLI)** - Use the `true-roll` command in your terminal
 3. **Terminal User Interface (TUI)** - Interactive terminal-based dashboard
 4. **Web Interface** - Browser-based graphical interface
 
@@ -25,7 +25,7 @@ TrueRoll offers four distinct ways to interact with the library:
 The Python library interface is the core of TrueRoll, allowing direct programmatic access to all features.
 
 ```python
-from trueroll import Bowler, Game, Scoring
+from true_roll import Bowler, Game, Scoring
 
 # Create a bowler
 player = Bowler("John Doe", 180)
@@ -45,17 +45,17 @@ For more details on the Python API, see the [API Documentation](api.md).
 
 ## Command Line Interface (CLI)
 
-The CLI provides command-line access to TrueRoll's features through the `trueroll` command.
+The CLI provides command-line access to TrueRoll's features through the `true-roll` command.
 
 ```bash
 # List bowlers
-trueroll bowlers list
+true-roll bowlers list
 
 # Add a new bowler
-trueroll bowlers add "John Doe" 180
+true-roll bowlers add "John Doe" 180
 
 # Start the web interface
-trueroll web start
+true-roll web start
 ```
 
 For more details on the CLI, see the [CLI Documentation](cli.md).
@@ -66,7 +66,7 @@ The TUI provides an interactive, dashboard-like interface directly in your termi
 
 ```bash
 # Start the TUI
-trueroll tui start
+true-roll tui start
 ```
 
 ![TrueRoll TUI](images/tui_interface.png)
@@ -79,7 +79,7 @@ The web interface provides a modern, browser-based graphical interface.
 
 ```bash
 # Start the web server
-trueroll web start
+true-roll web start
 ```
 
 Then access http://localhost:8000 in your browser.
